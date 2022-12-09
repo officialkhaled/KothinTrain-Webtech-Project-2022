@@ -1,0 +1,241 @@
+:root {
+  --clr-bg: #e7eeef;
+  --clr-primary: #243c58;
+  --clr-secondary: #5d7793;
+  --clr-tertiary: #699cc5;
+  --clr-quaternary: #696f6e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Whole Webpage */
+.wrap {
+  width: 100%;
+  background: var(--clr-bg);
+  height: 100vh;
+}
+
+/* Header */
+.header {
+  height: 120px;
+  width: 100%;
+  background: var(--clr-primary);
+}
+
+/* Logo-Title */
+img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+.logo-img {
+  position: absolute;
+
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navbar */
+nav {
+  width: 100%;
+  height: 50px;
+  background: var(--clr-tertiary);
+  font-size: 16px;
+}
+
+.nav {
+  width: 100%;
+  height: 50px;
+  background: var(--clr-tertiary);
+}
+
+.nav ul {
+  list-style: none;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.nav ul li {
+  margin: 0 10px;
+  padding: 6px;
+}
+
+.nav ul li a {
+  color: #fff;
+  display: block;
+  padding: 8px 10px;
+  text-decoration: none;
+}
+
+.nav ul li:hover a {
+  border-radius: 8px;
+  background: var(--clr-secondary);
+  color: #fff;
+}
+
+/* .nav ul li a:focus {
+  border-radius: 10px;
+  outline: none;
+  background: var(--clr-secondary);
+  color: #fff;
+} */
+
+/* .nav ul::after {
+  content: "";
+  display: block;
+  clear: both;
+} */
+
+/* .nav ul li a:active {
+  border-radius: 10px;
+  outline: none;
+  background: var(--clr-secondary);
+  color: #fff;
+} */
+
+.nav ul li a:visited {
+  border-radius: 10px;
+  outline: none;
+  background: var(--clr-secondary);
+  color: #fff;
+}
+
+/* Content */
+.container {
+  height: 100vh;
+  background: var(--clr-bg);
+}
+
+.left {
+  width: 30%;
+  height: 100%;
+  background: var(--clr-secondary);
+}
+
+/* .right {
+  width: 70%;
+  height: 100%;
+  background: var(--clr-tertiary);
+} */
+
+/* .clear {
+  clear: both;
+} */
+
+/* Footer */
+.footer {
+  height: 80px;
+  background: var(--clr-primary);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form-Group Design */
+
+.form-group {
+  margin: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group label {
+  display: block;
+  margin: 10px;
+  padding: 10px;
+}
+
+.form-group input {
+  display: block;
+  margin: 10px;
+  padding: 10px;
+}
+
+.form-group textarea {
+  display: block;
+  margin: 10px;
+  padding: 10px;
+}
+
+.form-group select {
+  display: block;
+  margin: 10px;
+  padding: 10px;
+}
+
+.form-group button {
+  display: block;
+  margin: 10px;
+  padding: 10px;
+}
+
+.form-group input[type="submit"] {
+  width: 100%;
+  margin: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  background: var(--clr-tertiary);
+  color: #fff;
+}
+
+.form-group input[type="submit"]:hover {
+  background: var(--clr-secondary);
+  color: #fff;
+}
+
+.form-group input[type="submit"]:focus {
+  background: var(--clr-secondary);
+  color: #fff;
+}
+
+.form-group input[type="submit"]:active {
+  background: var(--clr-secondary);
+  color: #fff;
+}
+
+.form-group input[type="submit"]:visited {
+  background: var(--clr-secondary);
+  color: #fff;
+}
+
+.register-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-link p a {
+  text-decoration: none;
+  color: var(--clr-secondary);
+}
+
+.register-link p a:hover {
+  text-decoration: underline;
+  color: var(--clr-primary);
+}
