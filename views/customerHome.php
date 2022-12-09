@@ -1,5 +1,20 @@
 <?php
 
+  if(!isset($_SESSION)) 
+  { 
+      session_start(); 
+  }
+
+
+  /* check usertype and send to dedicated home page */
+
+  /* if(isset($_SESSION['username']) && isset($_SESSION['userType'])) {
+    if($_SESSION['userType'] == 'admin') {
+      header('location: /admin/adminHome.php');
+    } else if($_SESSION['userType'] == 'customer') {
+      header('location: customerHome.php');
+    }
+  } */
   
 
 ?>
@@ -22,7 +37,9 @@
 
   <div class="container">
     <!-- <div class="left"></div> -->
-    <div class="right"></div>
+    <div class="right">
+      
+    </div>
     <div class="clear"></div>
   </div>
 
