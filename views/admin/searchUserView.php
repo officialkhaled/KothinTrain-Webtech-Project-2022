@@ -1,15 +1,9 @@
-<?php
 
-  session_start();
-
-  require_once '../../models/db.php';
-
-?>
 
 <html>
 <head>
   
-  <title>View Profile | Admin</title>
+  <title>Search Result | Admin</title>
   <link rel="stylesheet" href="../../assets/style/styleKhaled.css">
 
   <style>
@@ -130,6 +124,16 @@
       background: var(--clr-secondary);
       color: #fff;
     }
+
+    fieldset ul {
+      list-style-type: none;
+      padding: 20px;
+    }
+
+    fieldset ul li {
+      margin: 14px 0;
+      font-weight: bold;
+    }
     </style>
 </head>
 <body>
@@ -142,78 +146,17 @@
     <div class="title">
       <center><h3 class="title">RailSheba</h3></center>
     </div>
-  </div> 
+  </div>  
   <div class="nav"><?php include_once '../../assets/common/adminNavbar.php'; ?></div>
 
   <div class="container">
     <!-- Admin UI -->
-    <table
-      align="center"
-      width="100%"
-      height="100%"
-      style="border-collapse: collapse"
-    >
+    <table align="center" width="100%" height="100%" style="border-collapse: collapse">
       <tr>
-        <!-- SIDEBAR -->
-        <td class="left-section" style="padding-bottom: 100px">
-          <h4 class="heading">User List</h4>
-          <hr style="margin: 0 10px" />
-          <ul style="margin-left: 20px; margin-top: 20px">
-            <li><a href="menuAdmin.php">Main Menu</a></li>
-            <li><a href="viewProfileAdmin.php">View Profile</a></li>
-            <li><a href="editProfileAdmin.php">Edit Profile</a></li>
-            <li><a href="#">Change Profile Picture</a></li>
-            <li><a href="#">Change Password</a></li>
-            <li><a href="#">Edit Album</a></li>
-            <li><a href="viewUsers.php">User List</a></li>
-          </ul>
-        </td>
-
-        <!-- MAIN CONTENT -->
         <td class="right-section" style="padding: 80px">
           <fieldset>
-            <legend>LIST OF USERS</legend>
-            <form
-              action="../controllers/regCheck.php"
-              method="post"
-              enctype="multipart/form-data"
-            >
-              <table align="center">
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Username</th>
-                </tr>
-                <!-- PHP Integration -->
-                <?php
-                            
-                  $con = getConnection();
-                  $sql = "SELECT * FROM user";
-                  $result = mysqli_query($con, $sql);
-
-                  if(mysqli_num_rows($result) > 0) {
-                      while($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr>";
-
-                        echo "<td><center>{$row['name']}</center></td>";
-                        echo "<td><center>{$row['email']}</center></td>";
-                        echo "<td><center>{$row['username']}</center></td>";
-
-                        //DELETE
-                        ?>
-                        
-                        <td><center><a href="viewUsers.php?delete=<?php echo $row['id']; ?>">Delete</a></center></td><?php
-
-                        echo "</tr>";
-                      }
-                  } else {
-                      echo "<td colspan=\"4\">No data found</td>";
-                  }
-
-                  ?>
-
-              </table>
-            </form>
+            <legend>Search Result</legend>
+            
           </fieldset>
         </td>
       </tr>
@@ -229,22 +172,3 @@
 </html>
 
 
-<?php 
-
-  if(isset($_GET['delete'])) {
-    $station_id = $_GET['delete'];
-    $sql = "DELETE FROM user WHERE id = $id";
-    $result = mysqli_query($con, $sql);
-
-    if($result) {
-      //echo "<h2>Record deleted successfully</h2>";
-      //alert('Record deleted successfully');
-      header('location: viewUsers.php');
-    } else {
-      echo "<h2>Error deleting record: </h2>" . mysqli_error($con);
-    }
-
-    mysqli_close($con);
-  }
-
-?>

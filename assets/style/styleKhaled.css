@@ -14,6 +14,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+/*  */
+
+/*  */
+
 /* Whole Webpage */
 .wrap {
   width: 100%;
@@ -94,26 +98,6 @@ nav {
   color: #fff;
 }
 
-/* .nav ul li a:focus {
-  border-radius: 10px;
-  outline: none;
-  background: var(--clr-secondary);
-  color: #fff;
-} */
-
-/* .nav ul::after {
-  content: "";
-  display: block;
-  clear: both;
-} */
-
-/* .nav ul li a:active {
-  border-radius: 10px;
-  outline: none;
-  background: var(--clr-secondary);
-  color: #fff;
-} */
-
 .nav ul li a:visited {
   border-radius: 10px;
   outline: none;
@@ -133,12 +117,6 @@ nav {
   flex-direction: row;
 }
 
-/* .left {
-  width: 30%;
-  height: 100%;
-  background: var(--clr-secondary);
-} */
-
 .right {
   display: flex;
   justify-content: center;
@@ -149,16 +127,6 @@ nav {
 
 .clear {
   clear: both;
-}
-
-/* Footer */
-.footer {
-  height: 80px;
-  background: var(--clr-primary);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* Form-Group Design */
@@ -228,6 +196,7 @@ nav {
   color: #fff;
 }
 
+/* login and register link style */
 .register-link {
   display: flex;
   justify-content: center;
@@ -244,6 +213,7 @@ nav {
   color: var(--clr-accent);
 }
 
+/* Search button style */
 #search {
   width: 100%;
   height: 34px;
@@ -255,4 +225,14 @@ nav {
 
 #searchCustomer:focus {
   outline: none;
+}
+
+/* Footer */
+.footer {
+  height: 80px;
+  background: var(--clr-primary);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
