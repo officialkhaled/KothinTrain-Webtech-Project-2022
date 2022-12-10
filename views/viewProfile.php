@@ -1,120 +1,147 @@
-<!-- Customer UI -->
+<?php
+
+  
+
+?>
 
 <html>
-  <head>
-    <title>View Profile | Customer</title>
-    <link rel="stylesheet" href="../assets/style.css" />
-    <style>
-      :root {
-        --clr-bg: #e7eeef;
-        --clr-primary: #243c58;
-        --clr-secondary: #5d7793;
-        --clr-tertiary: #699cc5;
-        --clr-quaternary: #696f6e;
-        --clr-accent: rgb(255, 136, 0);
-      }
+<head>
+  
+  <title>View Profile | Customer</title>
+  <link rel="stylesheet" href="../assets/style/styleKhaled.css">
 
-      * {
-        box-sizing: border-box;
-        font-family: sans-serif;
-      }
+  <style>
+    :root {
+      --clr-bg: #e7eeef;
+      --clr-primary: #243c58;
+      --clr-secondary: #5d7793;
+      --clr-tertiary: #699cc5;
+      --clr-quaternary: #696f6e;
+      --clr-accent: rgb(255, 136, 0);
+    }
 
-      body {
-        background-color: var(--clr-bg);
-      }
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
 
-      .heading {
-        font-size: 22px;
-        color: var(--clr-accent);
-        font-weight: bold;
-        margin: 10px 20px;
-      }
+    body {
+      background-color: var(--clr-bg);
+    }
 
-      a {
-        color: var(--clr-primary);
-        text-decoration: none;
-      }
+    .heading {
+      font-size: 22px;
+      color: var(--clr-accent);
+      font-weight: bold;
+      margin: 10px 20px;
+    }
 
-      .left-section {
-        background-color: var(--clr-secondary);
-        height: 100%;
-        padding: 10px;
-        color: #fff;
-      }
+    a {
+      color: var(--clr-primary);
+      text-decoration: none;
+    }
 
-      .left-section ul {
-        list-style-type: none;
-        padding: 0;
-      }
+    .left-section {
+      background-color: var(--clr-secondary);
+      height: 100%;
+      padding: 10px;
+      color: #fff;
+    }
 
-      .left-section ul li {
-        margin: 14px 0;
-      }
+    .left-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
 
-      .left-section ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 20px;
-        display: flex;
-        flex-direction: column;
-      }
+    .left-section ul li {
+      margin: 14px 0;
+    }
 
-      .left-section ul li a:hover {
-        color: var(--clr-accent);
-      }
+    .left-section ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+    }
 
-      .right-section {
-        background-color: #fff;
-        height: 100%;
-        padding: 10px;
-      }
+    .left-section ul li a:hover {
+      color: var(--clr-accent);
+    }
 
-      .right-section a {
-        color: var(--clr-primary);
-        text-decoration: none;
-        font-size: 18px;
-      }
+    .right-section {
+      background-color: #fff;
+      height: 100%;
+      padding: 10px;
+    }
 
-      .right-section a:hover {
-        color: var(--clr-accent);
-      }
+    .right-section a {
+      color: var(--clr-primary);
+      text-decoration: none;
+      font-size: 18px;
+    }
 
-      .right-section fieldset {
-        width: 100%;
-        height: 80%;
-        border: 2px solid var(--clr-primary);
-        border-radius: 10px;
-        text-align: center;
-        padding: 10px;
-        align-items: center;
-      }
+    .right-section a:hover {
+      color: var(--clr-accent);
+    }
 
-      .right-section fieldset legend {
-        color: var(--clr-primary);
-        font-weight: bold;
-      }
+    .right-section fieldset {
+      width: 100%;
+      height: 80%;
+      border: 2px solid var(--clr-primary);
+      border-radius: 10px;
+      text-align: center;
+      padding: 10px;
+      align-items: center;
+    }
 
-      .right-section fieldset table {
-        width: 50%;
-        height: 70%;
-      }
+    .right-section fieldset legend {
+      color: var(--clr-primary);
+      font-weight: bold;
+    }
 
-      .img-box {
-        padding-top: 20px;
-      }
+    .right-section fieldset table {
+      width: 50%;
+      height: 70%;
+    }
 
-      label {
-        font-size: 18px;
-        font-weight: bold;
-        color: #000;
-      }
+    .img-box {
+      padding-top: 20px;
+    }
+
+    label {
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .nav ul li a:focus {
+      border-radius: 10px;
+      outline: none;
+      background: var(--clr-secondary);
+      color: #fff;
+    }
+
+    .nav ul li a:active {
+      border-radius: 10px;
+      outline: none;
+      background: var(--clr-secondary);
+      color: #fff;
+    }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="header"><?php include_once '../assets/common/header.php'; ?></div> 
+  <div class="nav"><?php include_once '../assets/common/customerNavbar.php'; ?></div>
+
+  <div class="container">
+    <!-- Customer UI -->
     <table
       align="center"
       width="100%"
-      height="100%%"
+      height="100%"
       style="border-collapse: collapse"
     >
       <tr>
@@ -122,12 +149,12 @@
           <h4 class="heading">View Profile</h4>
           <hr style="margin: 0 10px" />
           <ul style="margin-left: 20px; margin-top: 20px">
-            <li><a href="menuCus.html">Main Menu</a></li>
+            <li><a href="menuCustomer.php">Main Menu</a></li>
             <li><a href="viewProfile.php">View Profile</a></li>
             <li><a href="editProfile.php">Edit Profile</a></li>
-            <li><a href="#">View Album</a></li>
             <li><a href="#">Change Profile Picture</a></li>
             <li><a href="#">Change Password</a></li>
+            <li><a href="#">View Album</a></li>
             <li><a href="#">View Ticket Cart</a></li>
           </ul>
         </td>
@@ -184,5 +211,14 @@
         </td>
       </tr>
     </table>
-  </body>
+  </div>
+
+  <div class="footer">
+    <footer>Copyright &copy; 2022</footer>
+  </div>
+
+</div>
+</body>
 </html>
+
+
