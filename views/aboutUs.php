@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>About Us</title>
-    <!-- <link rel="stylesheet" href="../assets/style.css" /> -->
+    <!-- <link rel="stylesheet" href="../assets/styleKhaled.css" /> -->
     <style>
       body {
         background-color: #e7eeef;

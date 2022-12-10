@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Privacy Policy</title>
-    <!-- <link rel="stylesheet" href="../assets/style.css" /> -->
+    <!-- <link rel="stylesheet" href="../assets/styleKhaled.css" /> -->
 
     <style>
       body {
