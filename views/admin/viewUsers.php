@@ -154,7 +154,7 @@
       <tr>
         <!-- SIDEBAR -->
         <td class="left-section" style="padding-bottom: 100px">
-          <h4 class="heading">View Profile</h4>
+          <h4 class="heading">User List</h4>
           <hr style="margin: 0 10px" />
           <ul style="margin-left: 20px; margin-top: 20px">
             <li><a href="menuAdmin.php">Main Menu</a></li>
@@ -163,7 +163,7 @@
             <li><a href="#">Change Profile Picture</a></li>
             <li><a href="#">Change Password</a></li>
             <li><a href="#">Edit Album</a></li>
-            <li><a href="viewUsers.php">View User List</a></li>
+            <li><a href="viewUsers.php">User List</a></li>
           </ul>
         </td>
 
@@ -177,7 +177,11 @@
               enctype="multipart/form-data"
             >
               <table align="center">
-                
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Username</th>
+                </tr>
               </table>
             </form>
           </fieldset>

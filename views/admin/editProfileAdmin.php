@@ -162,7 +162,7 @@
             <li><a href="#">Change Profile Picture</a></li>
             <li><a href="#">Change Password</a></li>
             <li><a href="#">Edit Album</a></li>
-            <li><a href="viewUsers.php">View User List</a></li>
+            <li><a href="viewUsers.php">User List</a></li>
           </ul>
         </td>
         <td class="right-section" style="padding: 80px">
