@@ -8,6 +8,7 @@
   </ul>
 </nav>
 
+
 <!-- Admin -->
 <!-- <nav>
   <ul>
@@ -18,10 +19,12 @@
   </ul>
 </nav> -->
 
+
 <!-- Customer -->
 <!-- <nav>
   <ul>
-    <li><a href="publicHome.php">Home</a></li>
+    <li><input type="text" placeholder="Search" name="search" id="" value=""></li>
+    <li><a href="customerHome.php">Home</a></li>
     <li><a href="#">Contact Us</a></li>
     <li><a href="#">Login</a></li>
     <li><a href="#">Register</a></li>
