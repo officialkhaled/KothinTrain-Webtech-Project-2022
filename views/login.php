@@ -4,15 +4,12 @@
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Login</title>
   <link rel="stylesheet" href="..\assets\style\styleKhaled.css">
+  <script src="..\assets\js\main.js"></script>
   <style>
     form h3 {
       text-align: center;
@@ -36,26 +33,29 @@
   <div class="container">
 
     <div class="right">
-      <form action="../controllers/loginCheck.php" method="post" enctype="multipart/form-data">
+      <form action="../controllers/loginCheck.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm(this)">
       <h3>Login</h3>
         <div class="form-group">
           <div class="">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" autocomplete="off" placeholder="Enter your username" >
+            <p class="msgUser err"></p>
           </div>
           <div class="">
             <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="Enter your password" >
+            <p class="msgPass err"></p>
           </div>
           <div class="">
             <label for="userType">User Type</label>
-            <select name="userType" id="userType" required>
+            <select name="userType" id="userType" >
               <option value="admin">Admin</option>
               <option value="customer">Customer</option>
             </select>
+            <p class="msgType err"></p>
           </div>
           <div class="">
-            <input type="submit" value="Login">
+            <input type="submit" name="submit" value="Login">
           </div>
 
           <div class="register-link">

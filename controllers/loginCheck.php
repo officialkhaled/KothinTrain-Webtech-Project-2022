@@ -1,6 +1,6 @@
 <?php
 
-  require_once '../models/userModel.php';
+  //require_once '../models/userModel.php';
 
   if(!isset($_SESSION)) {
     session_start();

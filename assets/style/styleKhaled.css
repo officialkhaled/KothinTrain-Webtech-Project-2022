@@ -247,3 +247,8 @@ nav {
   justify-content: center;
   align-items: center;
 }
+
+.err {
+  color: red;
+  font-size: 12px;
+}
