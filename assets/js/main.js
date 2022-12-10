@@ -28,3 +28,21 @@ function validateForm() {
     return true;
   }
 }
+
+document
+  .getElementById("username")
+  .addEventListener("change", function (event) {
+    let value = event.target.value;
+
+    if (value == "") {
+      document.getElementById("msgUser").innerHTML =
+        "Please enter your username";
+    } else if (value.length < 2) {
+      document.getElementById("msgUser").innerHTML =
+        "Username must be at least 2 characters";
+    } else if (value != "" && value.length >= 2) {
+      document.getElementById("msgUser").innerHTML = "";
+    }
+
+    console.log(value);
+  });
