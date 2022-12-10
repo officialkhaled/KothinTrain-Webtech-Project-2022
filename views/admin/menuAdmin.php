@@ -143,7 +143,14 @@
 <body>
 
 <div class="wrap">
-  <div class="header"><?php include_once '../../assets/common/header.php'; ?></div> 
+  <div class="header">
+    <div class="logo-img">
+      <img src="..\..\assets\img\logo.png" alt="logo">
+    </div>
+    <div class="title">
+      <center><h3 class="title">RailSheba</h3></center>
+    </div>
+  </div>  
   <div class="nav"><?php include_once '../../assets/common/adminNavbar.php'; ?></div>
 
   <div class="container">
