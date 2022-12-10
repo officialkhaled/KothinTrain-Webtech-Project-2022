@@ -24,7 +24,7 @@
 <nav>
   <ul>
     <li><input type="text" autocomplete="off" placeholder="Search user" name="search" id="search" value=""></li>
-    <li><input type="submit" name=searchBtn value="Search"></li>
+    <li><input type="submit" name=searchBtn value="Search" id="searchBtn"></li>
     <li><a href="../../views/admin/adminHome.php">Home</a></li>
     <li><a href="../../views/admin/menuAdmin.php">Menu</a></li>
     <li><a href="#">Stations</a></li>

@@ -227,6 +227,17 @@ nav {
   outline: none;
 }
 
+#searchBtn {
+  border-radius: 10px;
+  border: none;
+  padding: 4px;
+}
+
+#searchBtn:hover {
+  background: var(--clr-accent);
+  color: #fff;
+}
+
 /* Footer */
 .footer {
   height: 80px;
