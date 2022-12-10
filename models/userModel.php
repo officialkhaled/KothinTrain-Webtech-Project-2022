@@ -17,7 +17,7 @@
   ];
 
 
-  function insertUser($user) { 
+  function insertUser($username, $password, $email, $gender, $type) { 
     $con = getConnection();
 
     $sql = "insert into users values('', '{$user['username']}', '{$user['password']}', '{$user['email']}', '{$user['type']}')";
@@ -27,7 +27,7 @@
 
   }
 
-  function getAllUser(){
+  function getAllUser($user){
     $con = getConnection();
     
     $sql = "select * from users";

@@ -11,6 +11,7 @@
         --clr-secondary: #5d7793;
         --clr-tertiary: #699cc5;
         --clr-quaternary: #696f6e;
+        --clr-accent: rgb(255, 136, 0);
       }
 
       * {
@@ -24,7 +25,7 @@
 
       .heading {
         font-size: 22px;
-        color: rgb(255, 136, 0);
+        color: var(--clr-accent);
         font-weight: bold;
         margin: 10px 20px;
       }
@@ -36,7 +37,6 @@
 
       .left-section {
         background-color: var(--clr-secondary);
-        /* width: 20%; */
         height: 100%;
         padding: 10px;
         color: #fff;
@@ -60,14 +60,23 @@
       }
 
       .left-section ul li a:hover {
-        color: rgb(255, 136, 0);
+        color: var(--clr-accent);
       }
 
       .right-section {
         background-color: #fff;
-        /* width: 80%; */
         height: 100%;
         padding: 10px;
+      }
+
+      .right-section a {
+        color: var(--clr-primary);
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      .right-section a:hover {
+        color: var(--clr-accent);
       }
 
       .right-section fieldset {
@@ -86,6 +95,10 @@
         width: 50%;
         height: 70%;
       }
+
+      .img-box {
+        padding-top: 20px;
+      }
     </style>
   </head>
   <body>
@@ -97,7 +110,7 @@
     >
       <tr>
         <td class="left-section" style="padding-bottom: 100px">
-          <h4 class="heading">Main Menu</h4>
+          <h4 class="heading">View Profile</h4>
           <hr style="margin: 0 10px" />
           <ul style="margin-left: 20px; margin-top: 20px">
             <li><a href="menuCus.html">Main Menu</a></li>
@@ -121,24 +134,36 @@
                 <tr>
                   <td>Name</td>
                   <td>:</td>
-                  <td>Khaled Hossain</td>
+                  <td>
+                    Khaled Hossain
+                    <!-- php code -->
+                  </td>
                 </tr>
+                <br />
+                <br />
+                <br />
                 <tr>
                   <td>Email</td>
                   <td>:</td>
-                  <td>khaled@aiub.edu</td>
+                  <td>
+                    khaled@aiub.edu
+                    <!-- php code -->
+                  </td>
                 </tr>
                 <tr>
                   <td>Gender</td>
                   <td>:</td>
-                  <td>Male</td>
+                  <td>
+                    Male
+                    <!-- php code -->
+                  </td>
                 </tr>
                 <tr>
                   <td><a href="editProfile.php">Edit Profile</a></td>
                 </tr>
                 <tr>
-                  <td>
-                    <img src="" alt="img" width="70px" height="70px" /><a
+                  <td class="img-box" colspan="2">
+                    <img src="" alt="img" width="100px" height="100px" /><a
                       href="#"
                       ><br />Change</a
                     >

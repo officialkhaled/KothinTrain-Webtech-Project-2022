@@ -4,6 +4,7 @@
   --clr-secondary: #5d7793;
   --clr-tertiary: #699cc5;
   --clr-quaternary: #696f6e;
+  --clr-accent: rgb(255, 136, 0);
 }
 
 * {
@@ -246,4 +247,17 @@ nav {
 .register-link p a:hover {
   text-decoration: underline;
   color: var(--clr-primary);
+}
+
+#search {
+  width: 100%;
+  height: 34px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+}
+
+#searchCustomer:focus {
+  outline: none;
 }
