@@ -148,18 +148,13 @@
 
   <div class="container">
     <!-- Customer UI -->
-    <table
-      align="center"
-      width="100%"
-      height="100%"
-      style="border-collapse: collapse"
-    >
+    <table align="center" width="100%" height="100%" style="border-collapse: collapse">
       <tr>
         <td class="right-section" style="padding: 80px">
           <fieldset>
             <legend>MAIN MENU</legend>
             <ul style="margin-left: 20px; margin-top: 20px">
-            <li><a href="menuCustomer.php">Main Menu</a></li>
+            <li><p style="color: rgb(255, 136, 0);">Choose your option</p><hr></li>
             <li><a href="viewProfile.php">View Profile</a></li>
             <li><a href="editProfile.php">Edit Profile</a></li>
             <li><a href="#">Change Profile Picture</a></li>
