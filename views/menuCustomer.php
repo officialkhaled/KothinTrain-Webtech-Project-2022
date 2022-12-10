@@ -30,7 +30,7 @@
 
 <div class="wrap">
   <div class="header"><?php include_once '../assets/common/header.php'; ?></div> 
-  <div class="nav"><?php include_once '../assets/common/navbar.php'; ?></div>
+  <div class="nav"><?php include_once '../assets/common/customerNavbar.php'; ?></div>
 
   <div class="container">
     <?php include_once 'menuCus.html'; ?>

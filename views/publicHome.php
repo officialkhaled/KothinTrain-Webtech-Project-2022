@@ -34,12 +34,10 @@
 
 <div class="wrap">
   <div class="header"><?php include_once '../assets/common/header.php'; ?></div> 
-  <div class="nav"><?php include_once '../assets/common/navbar.php'; ?></div>
+  <div class="nav"><?php include_once '../assets/common/publicNavbar.php'; ?></div>
 
   <div class="container">
-    <!-- <div class="left"></div> -->
-    <div class="right"></div>
-    <div class="clear"></div>
+    
   </div>
 
   <div class="footer">
