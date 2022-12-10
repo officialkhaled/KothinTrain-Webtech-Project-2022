@@ -24,7 +24,6 @@
 <!-- COMPLETE BODY [START] -->
 <div class="wrap">
 
-
   <!-- HEADER -->
   <div class="header"><?php include_once '../assets/common/header.php'; ?></div> 
   <div class="nav"><?php include_once '../assets/common/publicNavbar.php'; ?></div>
