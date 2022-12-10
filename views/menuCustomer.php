@@ -33,7 +33,7 @@
   <div class="nav"><?php include_once '../assets/common/customerNavbar.php'; ?></div>
 
   <div class="container">
-    <?php include_once 'viewProf.html'; ?>
+    <?php include_once 'viewProfile.php'; ?>
   </div>
 
   <div class="footer">

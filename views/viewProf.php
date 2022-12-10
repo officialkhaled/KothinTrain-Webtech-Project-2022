@@ -81,9 +81,12 @@
 
       .right-section fieldset {
         width: 100%;
-        height: 70%;
-        border: 1px solid var(--clr-primary);
+        height: 80%;
+        border: 2px solid var(--clr-primary);
+        border-radius: 10px;
+        text-align: center;
         padding: 10px;
+        align-items: center;
       }
 
       .right-section fieldset legend {
@@ -98,6 +101,12 @@
 
       .img-box {
         padding-top: 20px;
+      }
+
+      label {
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
       }
     </style>
   </head>
@@ -132,7 +141,7 @@
             >
               <table align="center">
                 <tr>
-                  <td>Name</td>
+                  <td><label for="name">Name</label></td>
                   <td>:</td>
                   <td>
                     Khaled Hossain
@@ -143,7 +152,7 @@
                 <br />
                 <br />
                 <tr>
-                  <td>Email</td>
+                  <td><label for="email">Email</label></td>
                   <td>:</td>
                   <td>
                     khaled@aiub.edu
@@ -151,7 +160,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Gender</td>
+                  <td><label for="gender">Gender</label></td>
                   <td>:</td>
                   <td>
                     Male

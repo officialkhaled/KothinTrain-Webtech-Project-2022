@@ -13,6 +13,13 @@
   
   <title>Login</title>
   <link rel="stylesheet" href="..\assets\style\styleKhaled.css">
+  <style>
+    form h3 {
+      text-align: center;
+      margin-top: 40px;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
 
@@ -23,14 +30,14 @@
 
   <!-- HEADER -->
   <div class="header"><?php include_once '../assets/common/header.php'; ?></div> 
-  <div class="nav"><?php include_once '../assets/common/navbar.php'; ?></div>
+  <div class="nav"><?php include_once '../assets/common/publicNavbar.php'; ?></div>
 
   <!-- MAIN CONTENT [START]  -->
   <div class="container">
-    <!-- <div class="left"></div> -->
+
     <div class="right">
       <form action="../controllers/loginCheck.php" method="post" enctype="multipart/form-data">
-        
+      <h3>Login</h3>
         <div class="form-group">
           <div class="">
             <label for="username">Username</label>
