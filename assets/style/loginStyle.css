@@ -7,7 +7,7 @@
   --clr-accent: rgb(255, 136, 0);
 }
 
-body {
+#loginBody {
   background: var(--clr-bg);
   display: flex;
   justify-content: center;
@@ -15,13 +15,13 @@ body {
   height: 100vh;
   flex-direction: column;
 }
-
+/* 
 * {
   font-family: sans-serif;
   box-sizing: border-box;
-}
+} */
 
-form {
+#loginForm {
   width: 500px;
   border: 2px solid var(--clr-accent);
   padding: 30px;
@@ -29,13 +29,13 @@ form {
   border-radius: 15px;
 }
 
-h2 {
+#h2-login {
   text-align: center;
   margin-bottom: 40px;
   color: #fff;
 }
 
-input {
+.input-login {
   display: block;
   border: 2px solid var(--clr-accent);
   width: 95%;
@@ -44,13 +44,13 @@ input {
   border-radius: 5px;
 }
 
-label {
+.label-login {
   color: #fff;
   font-size: 18px;
   padding: 10px;
 }
 
-button {
+#button-login {
   float: right;
   width: 95%;
   background: var(--clr-accent);
@@ -60,7 +60,7 @@ button {
   margin-right: 10px;
   border: none;
 }
-button:hover {
+#button-login:hover {
   opacity: 0.7;
 }
 .error {
@@ -72,7 +72,7 @@ button:hover {
   margin: 20px auto;
 }
 
-h1 {
+/* h1 {
   text-align: center;
   color: #fff;
 }
@@ -89,4 +89,4 @@ a {
 }
 a:hover {
   opacity: 0.7;
-}
+} */

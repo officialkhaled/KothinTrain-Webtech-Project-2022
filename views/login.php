@@ -8,6 +8,7 @@
 <head>
   
   <title>Login</title>
+  <link rel="stylesheet" href="..\assets\style\loginStyle.css">
   <link rel="stylesheet" href="..\assets\style\styleKhaled.css">
   
   <style>
@@ -18,7 +19,7 @@
     }
   </style>
 </head>
-<body>
+<body id="loginBody">
 
 <!-- COMPLETE BODY [START] -->
 <div class="wrap">
@@ -31,40 +32,20 @@
   <div class="container">
 
     <div class="right">
-      <form action="../controllers/loginCheck.php" method="post" enctype="multipart/form-data">
-      <h3>Login</h3>
-      <?php
-        if(isset($_GET['error'])) { ?>
+      <form id="loginForm" action="../controllers/loginCheck.php" method="post">
+        <h2 id="h2-login">LOGIN</h2>
+
+        <?php if (isset($_GET['error'])) { ?>
           <p class="error"><?php echo $_GET['error']; ?></p>
-      <?php } ?>
-        <div class="form-group">
-          <div class="">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" autocomplete="off" placeholder="Enter your username" >
-            <span class="msgUser err"></span>
-          </div>
-          <div class="">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="Enter your password" >
-            <span class="msgPass err"></span>
-          </div>
-          <div class="">
-            <label for="userType">User Type</label>
-            <select name="userType" id="userType" >
-              <option value="admin">Admin</option>
-              <option value="customer">Customer</option>
-            </select>
-            <p class="msgType err"></p>
-          </div>
-          <div class="">
-            <input type="submit" name="submit" value="Login">
-          </div>
+        <?php } ?>
 
-          <div class="register-link">
-            <p>Don't have an account? <a href="register.php">Register</a></p>
-          </div>
-        </div>
+        <label class="label-login">Username</label>
+        <input class="input-login" type="text" name="username" placeholder="Enter your username"><br>
 
+        <label class="label-login">User Name</label>
+        <input class="input-login" type="password" name="password" placeholder="Enter your password"><br>
+
+        <button id="button-login" type="submit">Login</button>
       </form>
     </div>
     <div class="clear"></div>
