@@ -1,7 +1,21 @@
 <?php
 
-  require_once '../models/userModel.php';
+  
 
+  if(isset($_GET['err'])){
+    if($_GET['err'] == 'invalid_request'){
+        echo "invalid request error..";
+    }
+
+    if($_GET['err'] == 'null'){
+        echo "null username/password";
+    }
+  } 
+
+
+  /*
+  require_once '../models/userModel.php';
+  
   if(isset($_POST['submit'])){
 
     $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -29,7 +43,7 @@
         }
     }
 
-  };
+  }; */
 
 
 ?>

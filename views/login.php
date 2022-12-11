@@ -1,6 +1,6 @@
 <?php
 
-  //require_once '../models/userModel.php';
+ 
 
   session_start();
 
@@ -13,7 +13,9 @@
         echo "null username/password";
     }
 }
+
 /* 
+  require_once '../models/userModel.php';
   if(isset($_POST['submit'])){
     $con = getConnection();
 

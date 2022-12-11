@@ -30,18 +30,20 @@
     echo "<h2> Validation failed: Password must contain at least one special character (@, #, $, %) </h2>";
   }
 
-  else if(($status = validateUser($username, $password)) == true){
+  else if(($user = validateUser($username, $password)) == true){
     //$status = validateUser($username, $password);
-    $_SESSION['status'] = true;
-    setcookie('status', 'true', time()+3600, '/');
-    
-    if ($_SESSION['status']['usertype]'] == 'customer') {
+    $_SESSION['user'] = true;
+    setcookie('user', 'true', time()+3600, '/');
+    header('location: ../views/admin/adminHome.php');
+    /*
+    if ($_SESSION['user']['usertype]'] == 'customer') {
       $_SESSION['status'] = "true";
       header('location: ../views/customerHome.php');
-    } else if ($_SESSION['status']['usertype]'] == 'admin') {
-      $_SESSION['status'] = "true";
+    } else if ($_SESSION['user']['usertype]'] == 'admin') {
+      $_SESSION['user'] = "true";
       header('location: ../views/adminHome.php');
     }
+    */
     
   } else {
     echo "<h2> Invalid username or password! </h2>";

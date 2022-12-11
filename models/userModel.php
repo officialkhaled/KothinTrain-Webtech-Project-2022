@@ -9,8 +9,17 @@
     $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
 
     $result = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($result);
 
-    if (mysqli_num_rows($result) === 1) {
+    if ($count > 0) {
+      return true;
+    }else{
+      return false;
+    }
+  }
+  
+
+    /* if (mysqli_num_rows($result) === 1) {
       $row = mysqli_fetch_assoc($result);
       if ($row['username'] === $username && $row['password'] === $password) {
         $_SESSION['username'] = $row['username'];
@@ -20,17 +29,17 @@
 
         return true;
       }else{
-        header("Location: loginForm.php");
+        header("Location: login.php");
       }
     }else{
-      header("Location: loginForm.php");
-    }
-  }
+      header("Location: login.php");
+    } */
+  
 
-  function insertUser($username, $password, $email, $type) { 
+  function registration($name, $username, $password, $type) { 
     $con = getConnection();
 
-    $sql = "insert into users values('', '{$user['username']}', '{$user['password']}', '{$user['email']}', '{$user['type']}')";
+    $sql = "insert into users values('', '{$user['name']}', '{$user['username']}', '{$user['password']}', '{$user['type']}')";
 
     $status = mysqli_query($con, $sql);
     return $status;

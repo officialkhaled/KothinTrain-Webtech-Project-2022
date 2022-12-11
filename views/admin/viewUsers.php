@@ -9,7 +9,7 @@
 <html>
 <head>
   
-  <title>View Profile | Admin</title>
+  <title>Users List | Admin</title>
   <link rel="stylesheet" href="../../assets/style/styleKhaled.css">
 
   <style>
