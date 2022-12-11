@@ -1,6 +1,6 @@
 <?php
 
-
+  
 
 ?>
 
@@ -20,7 +20,6 @@
 </head>
 <body>
 
-
 <!-- COMPLETE BODY [START] -->
 <div class="wrap">
 
@@ -34,6 +33,10 @@
     <div class="right">
       <form action="../controllers/loginCheck.php" method="post" enctype="multipart/form-data">
       <h3>Login</h3>
+      <?php
+        if(isset($_GET['error'])) { ?>
+          <p class="error"><?php echo $_GET['error']; ?></p>
+      <?php } ?>
         <div class="form-group">
           <div class="">
             <label for="username">Username</label>

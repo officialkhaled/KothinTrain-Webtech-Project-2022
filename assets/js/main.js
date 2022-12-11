@@ -1,4 +1,12 @@
-//alert("Hello World!");
+
+
+
+
+
+
+
+
+/* //alert("Hello World!");
 
 function validateForm() {
   let msgUser = document.getElementsByClassName("msgUser").value;
@@ -59,3 +67,4 @@ document.getElementById("password").addEventListener("blur", function (event) {
     document.querySelector(".msgPass").innerHTML = "";
   }
 });
+ */

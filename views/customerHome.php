@@ -1,6 +1,8 @@
 <?php
 
-  
+  session_start();
+
+  if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 
 ?>
 
@@ -44,4 +46,11 @@
 </body>
 </html>
 
+<?php
 
+  } else {
+    header("Location: ../views/loginForm.php");
+    exit();
+  }
+
+?>
