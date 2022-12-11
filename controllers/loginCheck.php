@@ -2,9 +2,8 @@
 
   //require_once '../models/userModel.php';
 
-  if(!isset($_SESSION)) {
-    session_start();
-  }
+  session_start();
+
 
   $valid_username = $valid_password = "";
   $username_err = $password_err = "";
@@ -29,6 +28,7 @@
         $valid_username = $username;
         $x++;
       }
+
       if(empty($password)) {
         $password_err = "Please enter a password.";
       } else if(!empty($password) && !preg_match($pattern, $password)) {
@@ -42,7 +42,10 @@
     }
   }
 
+  echo "<script>alert($username_err)</script>";
+  echo "<script>alert($password_err)</script>";
 
+/*
   if($x == 2) {
     $con = getConnection();
 
@@ -55,6 +58,6 @@
       $invalid_username="*invalid username or password";
     }
   }
-
+*/
 
 ?>

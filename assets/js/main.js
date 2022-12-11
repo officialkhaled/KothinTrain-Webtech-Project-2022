@@ -1,3 +1,5 @@
+//alert("Hello World!");
+
 function validateForm() {
   let msgUser = document.getElementsByClassName("msgUser").value;
   let msgPass = document.getElementsByClassName("msgPass").value;
@@ -29,20 +31,31 @@ function validateForm() {
   }
 }
 
-document
-  .getElementById("username")
-  .addEventListener("change", function (event) {
-    let value = event.target.value;
+document.getElementById("username").addEventListener("blur", function (event) {
+  let value = event.target.value;
 
-    if (value == "") {
-      document.getElementById("msgUser").innerHTML =
-        "Please enter your username";
-    } else if (value.length < 2) {
-      document.getElementById("msgUser").innerHTML =
-        "Username must be at least 2 characters";
-    } else if (value != "" && value.length >= 2) {
-      document.getElementById("msgUser").innerHTML = "";
-    }
+  if (value == "") {
+    document.querySelector(".msgUser").innerHTML = "Please enter your username";
+  } else if (value.length < 2) {
+    document.querySelector(".msgUser").innerHTML =
+      "Username must be at least 2 characters";
+  } else if (value != "" && value.length >= 2) {
+    document.querySelector(".msgUser").innerHTML = "";
+  }
+});
 
-    console.log(value);
-  });
+document.getElementById("password").addEventListener("blur", function (event) {
+  let value = event.target.value;
+
+  if (value == "") {
+    document.querySelector(".msgPass").innerHTML = "Please enter your password";
+  } else if (value.length < 8) {
+    document.querySelector(".msgPass").innerHTML =
+      "Username must be at least 8 characters";
+  } else if (value.length > 20) {
+    document.querySelector(".msgPass").innerHTML =
+      "Password must be less than 20 characters";
+  } else if (value != "" && value.length >= 8) {
+    document.querySelector(".msgPass").innerHTML = "";
+  }
+});

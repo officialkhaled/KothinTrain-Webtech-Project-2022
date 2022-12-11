@@ -1,15 +1,12 @@
-<?php
 
-  
-
-?>
 
 <html>
 <head>
   
   <title>Login</title>
   <link rel="stylesheet" href="..\assets\style\styleKhaled.css">
-  <script src="..\assets\js\main.js"></script>
+  
+  
   <style>
     form h3 {
       text-align: center;
@@ -32,18 +29,18 @@
   <div class="container">
 
     <div class="right">
-      <form action="../controllers/loginCheck.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm(this)">
+      <form action="../controllers/loginCheck.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
       <h3>Login</h3>
         <div class="form-group">
           <div class="">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" autocomplete="off" placeholder="Enter your username" >
-            <p class="msgUser err"></p>
+            <span class="msgUser err"></span>
           </div>
           <div class="">
             <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="Enter your password" >
-            <p class="msgPass err"></p>
+            <span class="msgPass err"></span>
           </div>
           <div class="">
             <label for="userType">User Type</label>
@@ -78,13 +75,13 @@
 <!-- COMPLETE BODY [END] -->
 
 
-<!-- JavaScript Validation -->
-<script>
-
-</script>
 
 </body>
 </html>
 
 
+<?php
 
+  echo '<script src="../assets/js/main.js"></script>';
+
+?>
