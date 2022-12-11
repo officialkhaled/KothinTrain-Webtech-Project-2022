@@ -32,18 +32,32 @@
 
   else if(($user = validateUser($username, $password)) == true){
     //$status = validateUser($username, $password);
+    $user = ['username' => $username, 'password' => $password, 'usertype' => $usertype];
+
     $_SESSION['user'] = true;
-    setcookie('user', 'true', time()+3600, '/');
+    setcookie('status', 'true', time()+3600, '/');
     header('location: ../views/admin/adminHome.php');
 
-    
-    /* if ($_SESSION['user']['usertype]'] === 'customer') {
-      $_SESSION['status'] = "true";
+    /*
+    if(mysqli_num_rows($result) > 0){
+      $row = mysqli_fetch_array($result);
+      if($row['usertype'] == 'admin'){
+        $_SESSION['admin_name'] = $row['name'];
+        header('location:admin_page.php');
+      }elseif($row['user_type'] == 'user'){
+        $_SESSION['user_name'] = $row['name'];
+        header('location:user_page.php');
+    } 
+    */
+
+
+    /*    
+    if ($user['usertype'] === 'customer') {
       header('location: ../views/customerHome.php');
-    } else if ($_SESSION['user']['usertype]'] === 'admin') {
-      $_SESSION['user'] = "true";
+    } else if ($user['usertype'] === 'admin') {
       header('location: ../views/admin/adminHome.php');
-    } */
+    } 
+    */
    
     
   } else {

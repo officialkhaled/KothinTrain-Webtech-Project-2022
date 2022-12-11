@@ -64,7 +64,7 @@
    
   <div class="form-container">
 
-    <form action="../controllers/loginCheck.php" method="post">
+    <form action="../controllers/loginCheck.php" method="post" onsubmit="return validateForm()">
       <h3>Login</h3>
       <?php
       if(isset($error)){
@@ -80,6 +80,8 @@
     </form>
 
   </div>
+
+  <script src="../assets/js/loginValid.js"></script>
 
 </body>
 </html>

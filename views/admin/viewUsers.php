@@ -200,6 +200,7 @@
                   <th>Username</th>
                   <th>Action</th>
                 </tr>
+
                 <!-- PHP Integration -->
                 <?php
                             
@@ -248,8 +249,11 @@
 <?php 
 
   if(isset($_GET['delete'])) {
+
+    $con = getConnection();
+
     $user = $_GET['delete'];
-    $sql = "DELETE FROM user WHERE id = $id";
+    $sql = "DELETE FROM user WHERE 'id' = $id";
 
     $result = mysqli_query($con, $sql);
 
