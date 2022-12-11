@@ -18,6 +18,7 @@
 }
 
 .container {
+  background: var(--clr-bg);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -36,8 +37,8 @@
 }
 
 .container .content h3 span {
-  background: crimson;
-  color: #fff;
+  background: var(--clr-bg);
+  color: var(--clr-primary);
   border-radius: 5px;
   padding: 0 15px;
 }
@@ -48,7 +49,7 @@
 }
 
 .container .content h1 span {
-  color: crimson;
+  color: var(--clr-primary);
 }
 
 .container .content p {
@@ -67,7 +68,7 @@
 }
 
 .container .content .btn:hover {
-  background: crimson;
+  background: var(--clr-primary);
 }
 
 .form-container {
@@ -77,7 +78,7 @@
   justify-content: center;
   padding: 20px;
   padding-bottom: 60px;
-  background: #eee;
+  background: var(--clr-bg);
 }
 
 .form-container form {
@@ -111,15 +112,15 @@
 }
 
 .form-container form .form-btn {
-  background: #fbd0d9;
-  color: crimson;
+  background: var(--clr-secondary);
+  color: var(--clr-primary);
   text-transform: capitalize;
   font-size: 20px;
   cursor: pointer;
 }
 
 .form-container form .form-btn:hover {
-  background: crimson;
+  background: var(--clr-primary);
   color: #fff;
 }
 
@@ -130,13 +131,14 @@
 }
 
 .form-container form p a {
-  color: crimson;
+  color: var(--clr-primary);
+  font-weight: bold;
 }
 
 .form-container form .error-msg {
   margin: 10px 0;
   display: block;
-  background: crimson;
+  background: var(--clr-primary);
   color: #fff;
   border-radius: 5px;
   font-size: 20px;

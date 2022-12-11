@@ -44,7 +44,7 @@
 <html>
 <head>
 
-  <title>login form</title>
+  <title>Login</title>
   <link rel="stylesheet" href="../assets/style/style.css">
 
 </head>
@@ -64,7 +64,7 @@
       <input type="username" name="username" placeholder="Enter your username">
       <input type="password" name="password" placeholder="Enter your password">
       <input type="submit" name="submit" value="LOGIN" class="form-btn">
-      <p>Don't have an account? <a href="registerForm.php">Register now</a></p>
+      <p>Don't have an account? <a href="register.php">Register now</a></p>
     </form>
 
   </div>

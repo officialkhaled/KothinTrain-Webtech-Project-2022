@@ -1,77 +1,87 @@
-<?php
 
-  require_once '../models/userModel.php';
-
-  if(isset($_POST['submit'])){
-
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $pass = md5($_POST['password']);
-    $cpass = md5($_POST['cpassword']);
-    $user_type = $_POST['user_type'];
-
-    $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
-
-    $result = mysqli_query($conn, $select);
-
-    if(mysqli_num_rows($result) > 0){
-
-        $error[] = 'user already exist!';
-
-    }else{
-
-        if($pass != $cpass){
-          $error[] = 'password not matched!';
-        }else{
-          $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
-          mysqli_query($conn, $insert);
-          header('location:login_form.php');
-        }
-    }
-
-  };
-
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register form</title>
-
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
-
+  <title>Register</title>
+  <link rel="stylesheet" href="..\assets\style\styleKhaled.css">
+  <style>
+    form h3 {
+      text-align: center;
+      margin-top: 40px;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-   
-<div class="form-container">
 
-   <form action="" method="post">
-      <h3>register now</h3>
-      <?php
-      if(isset($error)){
-         foreach($error as $error){
-            echo '<span class="error-msg">'.$error.'</span>';
-         };
-      };
-      ?>
-      <input type="text" name="name" required placeholder="enter your name">
-      <input type="email" name="email" required placeholder="enter your email">
-      <input type="password" name="password" required placeholder="enter your password">
-      <input type="password" name="cpassword" required placeholder="confirm your password">
-      <select name="user_type">
-         <option value="user">user</option>
-         <option value="admin">admin</option>
-      </select>
-      <input type="submit" name="submit" value="register now" class="form-btn">
-      <p>already have an account? <a href="login_form.php">login now</a></p>
-   </form>
+
+<!-- COMPLETE BODY [START] -->
+<div class="wrap">
+
+
+  <!-- HEADER -->
+  <div class="header"><?php include_once '../assets/common/header.php'; ?></div> 
+  <div class="nav"><?php include_once '../assets/common/publicNavbar.php'; ?></div>
+
+  <!-- MAIN CONTENT [START]  -->
+  <div class="container">
+    <div class="right">
+      <form action="../controllers/loginCheck.php" method="post" enctype="multipart/form-data" onsubmit="">
+        <h3>Register</h3>
+        <div class="form-group">
+          <div class="">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" autocomplete="off" placeholder="Enter username" >
+          </div>
+          <div class="">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" autocomplete="off" placeholder="Enter email" >
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter password" >
+          </div>
+          <div>
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm password" >
+          </div>
+          <div>
+            <label for="userType">User Type</label>
+            <select name="userType" id="userType" required>
+              <option value="admin">Admin</option>
+              <option value="customer">Customer</option>
+            </select>
+          </div>
+          <div>
+            <input type="submit" name="btn" value="Login">
+          </div>
+
+          <div class="register-link">
+            <p>Already have an account? <a href="login.php">Login</a></p>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <!-- MAIN CONTENT [END]  -->
+
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <footer>Copyright &copy; 2022</footer>
+  </div>
 
 </div>
+<!-- COMPLETE BODY [END] -->
+
+
+<!-- JavaScript Validation -->
+<script>
+
+</script>
 
 </body>
 </html>
+
+
+
