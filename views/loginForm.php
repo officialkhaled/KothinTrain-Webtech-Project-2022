@@ -1,3 +1,4 @@
+
 <html>
 <head>
 	<title>LOGIN</title>
@@ -14,8 +15,14 @@
      	<label>Username</label>
      	<input type="text" name="username" placeholder="Enter your username"><br>
 
-     	<label>User Name</label>
+     	<label>Password</label>
      	<input type="password" name="password" placeholder="Enter your password"><br>
+     	
+      <label>Usertype</label>
+     	<select name="usertype" id="usertype">
+        <option value="admin">Admin</option>
+        <option value="customer">Customer</option>
+      </select>
 
      	<button type="submit">Login</button>
      </form>

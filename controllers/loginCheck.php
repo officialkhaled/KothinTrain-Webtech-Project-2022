@@ -1,5 +1,33 @@
 <?php
 
+  /**
+  * ! Login Check
+  * ? Check if the user is valid or not
+  */
+
+  session_start(); 
+  require_once "../models/userModel.php";
+
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  $status = validateUser($username, $password);
+
+  if($status) {
+    $_SESSION['status'] = true;
+    setcookie('status', 'true', time()+3600, '/');
+    header('location: ../views/customerHome.php');
+  } else {
+    header('location: ../views/loginForm.php');
+  }
+
+?>
+
+
+
+
+<?php
+
 /*   session_start();
 
   if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['userType'])) {
@@ -33,14 +61,28 @@
 
  */
 
+
+  /* if($status) {
+    $_SESSION['username'] = $username;
+    $_SESSION['id'] = $id;
+    $_SESSION['email'] = $email;
+    header('location: ../views/customerHome.php');
+  } else {
+    header('location: ../views/loginForm.php?error=Invalid username or password');
+  }
+  if(validateUser($username, $password)){
+    $_SESSION['username'] = $username;
+    $_SESSION['password'] = $password;
+    header('location: ../views/customerHome.php');
+  }else{
+    header('location: ../views/loginForm.php?error=Invalid username or password');
+  } */
+
 /**
- * ! Login Check
- */
+ * 
+ */ 
 
-  session_start(); 
-  require_once "../models/userModel.php";
-
-  if (isset($_POST['username']) && isset($_POST['password'])) {
+  /* if (isset($_POST['username']) && isset($_POST['password'])) {
 
     function validate($data){
       $data = trim($data);
@@ -54,10 +96,10 @@
 
     if (empty($username)) {
       header("Location: loginForm.php?error=Username is required");
-        exit();
+      exit();
     }else if(empty($password)){
-          header("Location: loginForm.php?error=Password is required");
-        exit();
+      header("Location: loginForm.php?error=Password is required");
+      exit();
     }else{
       $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 
@@ -67,16 +109,16 @@
         $row = mysqli_fetch_assoc($result);
           if ($row['username'] === $username && $row['password'] === $password) {
             $_SESSION['username'] = $row['username'];
-            $_SESSION['name'] = $row['name'];
+            $_SESSION['email'] = $row['email'];
             $_SESSION['id'] = $row['id'];
             header("Location: customerHome.php");
             exit();
           }else{
-            header("Location: loginForm.php?error=Incorect User name or password");
+            header("Location: loginForm.php?error=Incorrect username or password");
             exit();
         }
       }else{
-        header("Location: loginForm.php?error=Incorrect Username or Password");
+        header("Location: loginForm.php?error=Incorrect username or Password");
         exit();
       }
     }
@@ -84,7 +126,7 @@
   }else{
     header("Location: loginForm.php");
     exit();
-  }
+  } */
 
 
   /*

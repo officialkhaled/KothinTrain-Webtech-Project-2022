@@ -2,19 +2,30 @@
 
   require_once 'db.php';
 
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  $email = $_POST['email'];
-  $type = $_POST['type'];
+  
+  function validateUser($username, $password){
+    $con = getConnection();
 
-  $user = [
-    'username' => $username,
-    'password' => $password,
-    'email' => $email,
-    'gender' => $gender,
-    'type' => $type
-  ];
+    $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
 
+    $result = mysqli_query($con, $sql);
+
+    if (mysqli_num_rows($result) === 1) {
+      $row = mysqli_fetch_assoc($result);
+      if ($row['username'] === $username && $row['password'] === $password) {
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['type'] = $row['type'];
+
+        return true;
+      }else{
+        header("Location: loginForm.php");
+      }
+    }else{
+      header("Location: loginForm.php");
+    }
+  }
 
   function insertUser($username, $password, $email, $type) { 
     $con = getConnection();
@@ -40,19 +51,6 @@
     return $users;
   }
 
-  function validateUser($username, $password){
-    $con = getConnection();
-
-    $sql = "select * from users where username='{$username}' and password='{$password}'";
-    $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_assoc($result);
-
-    if(count($row) > 0){
-      return true;
-    }else{
-      return false;
-    }
-  }
 
   function getUserById($id){
     $con = getConnection();
