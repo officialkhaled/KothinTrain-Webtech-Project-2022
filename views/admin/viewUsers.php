@@ -130,6 +130,22 @@
       background: var(--clr-secondary);
       color: #fff;
     }
+
+    #delete-btn {
+      background-color: red;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    #list-table {
+      border-collapse: collapse;
+
+      width: 100%;
+    }
     </style>
 </head>
 <body>
@@ -178,16 +194,17 @@
               method="post"
               enctype="multipart/form-data"
             >
-              <table align="center">
+              <table id="list-table" align="center">
                 <tr>
                   <th>Name</th>
-                  <th>Email</th>
                   <th>Username</th>
+                  <th>Action</th>
                 </tr>
                 <!-- PHP Integration -->
                 <?php
                             
                   $con = getConnection();
+
                   $sql = "SELECT * FROM user";
                   $result = mysqli_query($con, $sql);
 
@@ -196,18 +213,17 @@
                         echo "<tr>";
 
                         echo "<td><center>{$row['name']}</center></td>";
-                        echo "<td><center>{$row['email']}</center></td>";
                         echo "<td><center>{$row['username']}</center></td>";
-
-                        //DELETE
+                      
+                        // DELETE BUTTON
                         ?>
-                        
-                        <td><center><a href="viewUsers.php?delete=<?php echo $row['id']; ?>">Delete</a></center></td><?php
+                        <td><center><a id="delete-btn" href="viewUsers.php?delete=<?php echo $row['id']; ?>">Delete</a></center></td>
+                        <?php
 
                         echo "</tr>";
                       }
                   } else {
-                      echo "<td colspan=\"4\">No data found</td>";
+                      echo "<td colspan=\"3\">No data found</td>";
                   }
 
                   ?>
@@ -232,13 +248,13 @@
 <?php 
 
   if(isset($_GET['delete'])) {
-    $station_id = $_GET['delete'];
+    $user = $_GET['delete'];
     $sql = "DELETE FROM user WHERE id = $id";
+
     $result = mysqli_query($con, $sql);
 
     if($result) {
-      //echo "<h2>Record deleted successfully</h2>";
-      //alert('Record deleted successfully');
+      alert('Record deleted successfully');
       header('location: viewUsers.php');
     } else {
       echo "<h2>Error deleting record: </h2>" . mysqli_error($con);

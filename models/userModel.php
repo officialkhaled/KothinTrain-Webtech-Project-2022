@@ -12,6 +12,12 @@
     $count = mysqli_num_rows($result);
 
     if ($count > 0) {
+      if($row = mysqli_fetch_assoc($result)){
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['name'] = $row['name'];
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['usertype'] = $row['usertype'];
+      }
       return true;
     }else{
       return false;

@@ -35,15 +35,16 @@
     $_SESSION['user'] = true;
     setcookie('user', 'true', time()+3600, '/');
     header('location: ../views/admin/adminHome.php');
-    /*
-    if ($_SESSION['user']['usertype]'] == 'customer') {
+
+    
+    /* if ($_SESSION['user']['usertype]'] === 'customer') {
       $_SESSION['status'] = "true";
       header('location: ../views/customerHome.php');
-    } else if ($_SESSION['user']['usertype]'] == 'admin') {
+    } else if ($_SESSION['user']['usertype]'] === 'admin') {
       $_SESSION['user'] = "true";
-      header('location: ../views/adminHome.php');
-    }
-    */
+      header('location: ../views/admin/adminHome.php');
+    } */
+   
     
   } else {
     echo "<h2> Invalid username or password! </h2>";
