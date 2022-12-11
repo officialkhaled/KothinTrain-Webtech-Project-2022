@@ -1,11 +1,14 @@
+<?php
 
+
+
+?>
 
 <html>
 <head>
   
   <title>Login</title>
   <link rel="stylesheet" href="..\assets\style\styleKhaled.css">
-  
   
   <style>
     form h3 {
@@ -29,7 +32,7 @@
   <div class="container">
 
     <div class="right">
-      <form action="../controllers/loginCheck.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+      <form action="../controllers/loginCheck.php" method="post" enctype="multipart/form-data">
       <h3>Login</h3>
         <div class="form-group">
           <div class="">
@@ -65,7 +68,6 @@
   </div>
   <!-- MAIN CONTENT [END]  -->
 
-
   <!-- FOOTER -->
   <div class="footer">
     <footer>Copyright &copy; 2022</footer>
@@ -74,14 +76,5 @@
 </div>
 <!-- COMPLETE BODY [END] -->
 
-
-
 </body>
 </html>
-
-
-<?php
-
-  echo '<script src="../assets/js/main.js"></script>';
-
-?>
