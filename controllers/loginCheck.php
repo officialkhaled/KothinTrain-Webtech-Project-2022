@@ -1,8 +1,54 @@
 <?php
 
-  //require_once '../models/userModel.php';
-
   session_start();
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+
+  // USERNAME VALIDATION
+  if($username == "" || $password == "" ){
+      echo "<h2> Validation failed: Username or Password is missing! </h2>";
+  }
+  else if(strlen($username)<2){
+      echo "<h2>Validation failed: Username must be at least 2 characters long! </h2>";
+  }
+  else if((substr_count($username,'@')>0) || (substr_count($username,'#')>0) || (substr_count($username,'$')>0) || (substr_count($username,'%')>0) || (substr_count($username,'/')>0) || (substr_count($username,'*')>0) || (substr_count($username,'+')>0) || (substr_count($username,'(')>0) || (substr_count($username,')')>0) || (substr_count($username,'!')>0) || (substr_count($username,'^')>0)){
+      echo "<h2> Validation failed: Username can contain alpha numeric characters, period, dash or underscore only! </h2>";
+  }
+
+  // PASSWORD VALIDATION
+  else if(strlen($password)<8){
+      echo "<h2> Validation failed: Password must be at least 8 characters long! </h2>";
+  }
+  else if((substr_count($password,'@')<1) && (substr_count($password,'#')<1) && (substr_count($password,'$')<1) && (substr_count($password,'%')<1)){
+      echo "<h2> Validation failed: Password must contain at least one special character (@, #, $, %) </h2>";
+  }
+
+  else{
+      echo "<h1> Validation Successful!  </h1>";
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//require_once '../models/userModel.php';
+
+/*   session_start();
 
 
   $valid_username = $valid_password = "";
@@ -43,7 +89,7 @@
   }
 
   echo "<script>alert($username_err)</script>";
-  echo "<script>alert($password_err)</script>";
+  echo "<script>alert($password_err)</script>"; */
 
 /*
   if($x == 2) {
