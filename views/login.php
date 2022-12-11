@@ -1,13 +1,25 @@
 <?php
 
-  require_once '../models/userModel.php';
+  //require_once '../models/userModel.php';
 
   session_start();
 
-  if(isset($_POST['submit'])){
+  if(isset($_GET['err'])){
+    if($_GET['err'] == 'invalid_request'){
+        echo "invalid request error..";
+    }
 
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    if($_GET['err'] == 'null'){
+        echo "null username/password";
+    }
+}
+/* 
+  if(isset($_POST['submit'])){
+    $con = getConnection();
+
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+
     $pass = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
     $user_type = $_POST['user_type'];
@@ -36,7 +48,7 @@
         $error[] = 'incorrect email or password!';
     }
 
-  };
+  }; */
 
 ?>
 
@@ -52,7 +64,7 @@
    
   <div class="form-container">
 
-    <form action="" method="post">
+    <form action="../controllers/loginCheck.php" method="post">
       <h3>Login</h3>
       <?php
       if(isset($error)){

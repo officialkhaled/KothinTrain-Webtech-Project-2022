@@ -14,9 +14,9 @@
       $row = mysqli_fetch_assoc($result);
       if ($row['username'] === $username && $row['password'] === $password) {
         $_SESSION['username'] = $row['username'];
-        $_SESSION['email'] = $row['email'];
-        $_SESSION['id'] = $row['id'];
-        $_SESSION['type'] = $row['type'];
+        //$_SESSION['name'] = $row['name'];
+        //$_SESSION['id'] = $row['id'];
+        $_SESSION['usertype'] = $row['usertype'];
 
         return true;
       }else{

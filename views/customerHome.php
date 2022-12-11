@@ -2,7 +2,9 @@
 
   session_start();
 
-  if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
+  if(!isset($_SESSION['status'])){
+    header('location: login.php?err=invalid_request');
+  }
 
 ?>
 
@@ -46,11 +48,3 @@
 </body>
 </html>
 
-<?php
-
-  } else {
-    header("Location: ../views/loginForm.php");
-    exit();
-  }
-
-?>

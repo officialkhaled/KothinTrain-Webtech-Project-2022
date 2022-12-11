@@ -11,15 +11,43 @@
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  $status = validateUser($username, $password);
+  /*  */
+  if($username == "" || $password == "" ){
+    echo "<h2> Validation failed: Username or Password is missing! </h2>";
+  }
+  else if(strlen($username)<2){
+    echo "<h2>Validation failed: Username must be at least 2 characters long! </h2>";
+  }
+  else if((substr_count($username,'@')>0) || (substr_count($username,'#')>0) || (substr_count($username,'$')>0) || (substr_count($username,'%')>0) || (substr_count($username,'/')>0) || (substr_count($username,'*')>0) || (substr_count($username,'+')>0) || (substr_count($username,'(')>0) || (substr_count($username,')')>0) || (substr_count($username,'!')>0) || (substr_count($username,'^')>0)){
+    echo "<h2> Validation failed: Username can contain alpha numeric characters, period, dash or underscore only! </h2>";
+  }
 
-  if($status) {
+  // PASSWORD VALIDATION
+  else if(strlen($password)<8){
+    echo "<h2> Validation failed: Password must be at least 8 characters long! </h2>";
+  }
+  else if((substr_count($password,'@')<1) && (substr_count($password,'#')<1) && (substr_count($password,'$')<1) && (substr_count($password,'%')<1)){
+    echo "<h2> Validation failed: Password must contain at least one special character (@, #, $, %) </h2>";
+  }
+
+  else if(($status = validateUser($username, $password)) == true){
+    //$status = validateUser($username, $password);
     $_SESSION['status'] = true;
     setcookie('status', 'true', time()+3600, '/');
-    header('location: ../views/customerHome.php');
+    
+    if ($_SESSION['status']['usertype]'] == 'customer') {
+      $_SESSION['status'] = "true";
+      header('location: ../views/customerHome.php');
+    } else if ($_SESSION['status']['usertype]'] == 'admin') {
+      $_SESSION['status'] = "true";
+      header('location: ../views/adminHome.php');
+    }
+    
   } else {
-    header('location: ../views/loginForm.php');
+    echo "<h2> Invalid username or password! </h2>";
   }
+  /*  */
+
 
 ?>
 
