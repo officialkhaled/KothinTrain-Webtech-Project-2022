@@ -2,7 +2,8 @@
 
   session_start();
 
-  require_once '../../models/db.php';
+  //require_once '../../models/db.php';
+  require_once '../../models/userModel.php';
 
 ?>
 
@@ -190,7 +191,7 @@
           <fieldset>
             <legend>LIST OF USERS</legend>
             <form
-              action="../controllers/regCheck.php"
+              action=""
               method="post"
               enctype="multipart/form-data"
             >
@@ -198,7 +199,9 @@
                 <tr>
                   <th>Name</th>
                   <th>Username</th>
+                  <th>Usertype</th>
                   <th>Action</th>
+                  <th><button onclick="location.reload()">Refresh</button></th>
                 </tr>
 
                 <!-- PHP Integration -->
@@ -210,21 +213,22 @@
                   $result = mysqli_query($con, $sql);
 
                   if(mysqli_num_rows($result) > 0) {
-                      while($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr>";
+                    while($row = mysqli_fetch_assoc($result)) {
+                      echo "<tr>";
 
-                        echo "<td><center>{$row['name']}</center></td>";
-                        echo "<td><center>{$row['username']}</center></td>";
-                      
-                        // DELETE BUTTON
-                        ?>
-                        <td><center><a id="delete-btn" href="viewUsers.php?delete=<?php echo $row['id']; ?>">Delete</a></center></td>
-                        <?php
+                      echo "<td><center>{$row['name']}</center></td>";
+                      echo "<td><center>{$row['username']}</center></td>";
+                      echo "<td><center>{$row['usertype']}</center></td>";
+                    
+                      // DELETE BUTTON
+                      ?>
+                      <td><center><a id="delete-btn" href="viewUsers.php?delete=<?php echo $row['id']; ?>">Delete</a></center></td>
+                      <?php
 
-                        echo "</tr>";
-                      }
+                      echo "</tr>";
+                    }
                   } else {
-                      echo "<td colspan=\"3\">No data found</td>";
+                    echo "<td colspan=\"3\">No data found</td>";
                   }
 
                   ?>
@@ -249,17 +253,11 @@
 <?php 
 
   if(isset($_GET['delete'])) {
+    $id = $_GET['delete'];
+    $result = deleteUser($id);
 
-    $con = getConnection();
-
-    $user = $_GET['delete'];
-    $sql = "DELETE FROM user WHERE 'id' = $id";
-
-    $result = mysqli_query($con, $sql);
-
-    if($result) {
-      alert('Record deleted successfully');
-      header('location: viewUsers.php');
+    if($result == true) {
+      //header('location: viewUsers.php');
     } else {
       echo "<h2>Error deleting record: </h2>" . mysqli_error($con);
     }

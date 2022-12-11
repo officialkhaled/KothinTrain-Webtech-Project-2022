@@ -55,7 +55,7 @@
   function getAllUser($user){
     $con = getConnection();
     
-    $sql = "select * from users";
+    $sql = "select * from user";
     $result = mysqli_query($con, $sql);
     $users = [];
 
@@ -70,14 +70,21 @@
   function getUserById($id){
     $con = getConnection();
 
-    $sql = "select * from users where id='{$id}'";
+    $sql = "select * from user where id='{$id}'";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
 
     return $row;
   }
 
+  function deleteUser($id){
+    $con = getConnection();
 
+    $sql = "DELETE FROM user WHERE id='{$id}'";
+    $result = mysqli_query($con, $sql);
+
+    return $result;
+  }
   
 
   
