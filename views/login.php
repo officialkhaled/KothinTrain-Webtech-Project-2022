@@ -73,7 +73,7 @@
         };
       };
       ?>
-      <input type="username" name="username" placeholder="Enter your username">
+      <input type="username" id="uname" name="username" placeholder="Enter your username">
       <input type="password" name="password" placeholder="Enter your password">
       <input type="submit" name="submit" value="LOGIN" class="form-btn">
       <p>Don't have an account? <a href="register.php">Register now</a></p>

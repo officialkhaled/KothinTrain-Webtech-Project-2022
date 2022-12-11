@@ -1,7 +1,7 @@
 function validateForm() {
   let error = document.getElementsByClassName("error-msg").value;
 
-  if (error == "") {
+  if (document.getElementById("uname") == "") {
     document.getElementsByClassName("error-msg").innerHTML =
       "Please enter your username";
     return false;
