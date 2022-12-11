@@ -1,64 +1,73 @@
 <?php
 
-  
+  require_once '../models/userModel.php';
+
+  session_start();
+
+  if(isset($_POST['submit'])){
+
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $pass = md5($_POST['password']);
+    $cpass = md5($_POST['cpassword']);
+    $user_type = $_POST['user_type'];
+
+    $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
+
+    $result = mysqli_query($conn, $select);
+
+    if(mysqli_num_rows($result) > 0){
+
+        $row = mysqli_fetch_array($result);
+
+        if($row['user_type'] == 'admin'){
+
+          $_SESSION['admin_name'] = $row['name'];
+          header('location:admin_page.php');
+
+        }elseif($row['user_type'] == 'user'){
+
+          $_SESSION['user_name'] = $row['name'];
+          header('location:user_page.php');
+
+        }
+      
+    }else{
+        $error[] = 'incorrect email or password!';
+    }
+
+  };
 
 ?>
 
+
 <html>
 <head>
-  
-  <title>Login</title>
-  <link rel="stylesheet" href="..\assets\style\loginStyle.css">
-  <link rel="stylesheet" href="..\assets\style\styleKhaled.css">
-  
-  <style>
-    form h3 {
-      text-align: center;
-      margin-top: 40px;
-      color: #fff;
-    }
-  </style>
+
+  <title>login form</title>
+  <link rel="stylesheet" href="../assets/style/style.css">
+
 </head>
-<body id="loginBody">
+<body>
+   
+  <div class="form-container">
 
-<!-- COMPLETE BODY [START] -->
-<div class="wrap">
+    <form action="" method="post">
+      <h3>Login</h3>
+      <?php
+      if(isset($error)){
+        foreach($error as $error){
+          echo '<span class="error-msg">'.$error.'</span>';
+        };
+      };
+      ?>
+      <input type="username" name="username" placeholder="Enter your username">
+      <input type="password" name="password" placeholder="Enter your password">
+      <input type="submit" name="submit" value="LOGIN" class="form-btn">
+      <p>Don't have an account? <a href="registerForm.php">Register now</a></p>
+    </form>
 
-  <!-- HEADER -->
-  <div class="header"><?php include_once '../assets/common/header.php'; ?></div> 
-  <div class="nav"><?php include_once '../assets/common/publicNavbar.php'; ?></div>
-
-  <!-- MAIN CONTENT [START]  -->
-  <div class="container">
-
-    <div class="right">
-      <form id="loginForm" action="../controllers/loginCheck.php" method="post">
-        <h2 id="h2-login">LOGIN</h2>
-
-        <?php if (isset($_GET['error'])) { ?>
-          <p class="error"><?php echo $_GET['error']; ?></p>
-        <?php } ?>
-
-        <label class="label-login">Username</label>
-        <input class="input-login" type="text" name="username" placeholder="Enter your username"><br>
-
-        <label class="label-login">User Name</label>
-        <input class="input-login" type="password" name="password" placeholder="Enter your password"><br>
-
-        <button id="button-login" type="submit">Login</button>
-      </form>
-    </div>
-    <div class="clear"></div>
   </div>
-  <!-- MAIN CONTENT [END]  -->
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <footer>Copyright &copy; 2022</footer>
-  </div>
-
-</div>
-<!-- COMPLETE BODY [END] -->
 
 </body>
 </html>
