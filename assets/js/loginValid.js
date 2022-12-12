@@ -12,8 +12,8 @@ function isValid(pForm) {
       "*Username cannot be empty <br> ";
     isValid = false;
   } else {
-    const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (!pattern.test(email)) {
+    const pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    if (!pattern.test(username)) {
       document.getElementById("unameMsg").innerHTML =
         "*Username is not valid <br> ";
       isValid = false;

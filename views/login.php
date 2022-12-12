@@ -31,16 +31,16 @@
    
   <div class="form-container">
 
-    <form action="../controllers/loginCheck.php" method="post" id="login-form" novalidate onsubmit="return isValid(this);">
+    <form action="../controllers/loginCheck.php" name="pForm" method="post" id="login-form" novalidate onsubmit="return isValid(this);">
       <h3>Login</h3>
 
       <input type="username" id="username" name="username" placeholder="Enter your username">
       <?php echo isset($_SESSION['unameMsg']) ? $_SESSION['unameMsg'] : ""; ?>
-      <span id="unameMsg" ></span>
+      <span id="unameMsg" class="">asdas</span>
       
       <input type="password" id="password" name="password" placeholder="Enter your password">
       <?php echo isset($_SESSION['passMsg']) ? $_SESSION['passMsg'] : ""; ?>
-      <span id="passMsg" ></span>
+      <span id="passMsg" class="">asdasd</span>
 
       <?php echo isset($_SESSION['loginMsg']) ? $_SESSION['loginMsg'] : ""; ?>
 
