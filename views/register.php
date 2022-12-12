@@ -100,7 +100,7 @@
 
 
       <input type="submit" name="submit" value="register now" class="form-btn">
-      <p>Already have an account? <a href="login.php">Login</a></p>
+      <p>Already have an account? <a id="link-color" href="login.php">Login</a></p>
    </form>
 
 </div>

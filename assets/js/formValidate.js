@@ -5,7 +5,15 @@ function validateLoginForm() {
   let errUser = (document.getElementById("unameMsg").innerHTML = "");
   let errPass = (document.getElementById("passMsg").innerHTML = "");
 
-  if (x == "") {
+  if (x == "" && y == "") {
+    let errUser = (document.getElementById("unameMsg")[0].innerHTML =
+      "Username cannot be empty");
+    let errPass = (document.getElementById("passMsg")[0].innerHTML =
+      "Password cannot be empty");
+    return false;
+  }
+
+  /* if (x == "") {
     errUser = document.getElementById("unameMsg").innerHTML =
       "Username cannot be empty";
     return false;
@@ -19,5 +27,5 @@ function validateLoginForm() {
     errPass = document.getElementById("passMsg")[0].innerHTML =
       "Password cannot be empty";
     return false;
-  }
+  } */
 }

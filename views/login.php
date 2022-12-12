@@ -31,9 +31,13 @@
       <input type="password" id="password" name="password" placeholder="Enter your password" class="text-field">
       <span id="passMsg" class="err-text"></span>
 
+      <div id="showPass-card">
+        <input type="checkbox" id="showPass" value="Show Password">
+        <label for="showPass"> Show Password</label>
+      </div>
 
       <input type="submit" name="submit" value="LOGIN" class="form-btn">
-      <p>Don't have an account? <a href="register.php">Register now</a></p>
+      <p>Don't have an account? <a id="link-color" href="register.php">Register now</a></p>
     </form>
 
   </div>

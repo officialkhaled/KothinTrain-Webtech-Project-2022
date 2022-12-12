@@ -147,6 +147,51 @@
 
       width: 100%;
     }
+
+    #refresh-btn{
+      background-color: var(--clr-primary);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    #refresh-btn:hover{
+      background-color: var(--clr-accent);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    #list-table th {
+      padding: 8px;
+      text-align: center;
+    }
+
+    #list-table td {
+      padding: 8px;
+      text-align: center;
+    }
+
+    #list-table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #list-table tr:hover {
+      background-color: #ddd;
+    }
+
+
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
     </style>
 </head>
 <body>
@@ -201,7 +246,7 @@
                   <th>Username</th>
                   <th>Usertype</th>
                   <th>Action</th>
-                  <th><button onclick="location.reload()">Refresh</button></th>
+                  <th><button id="refresh-btn" onclick="location.reload()">Refresh</button></th>
                 </tr>
 
                 <!-- PHP Integration -->
