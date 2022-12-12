@@ -2,9 +2,9 @@
 
   session_start();
 
-  /* if(!isset($_SESSION['userid'])){
-    header('location: login.php');
-  } */
+  if(!isset($_SESSION['status'])){
+    header('location: ../login.php');
+  }
 
 ?>
 

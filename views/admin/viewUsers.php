@@ -2,7 +2,10 @@
 
   session_start();
 
-  //require_once '../../models/db.php';
+  if(!isset($_SESSION['status'])){
+    header('location: ../login.php');
+  }
+
   require_once '../../models/userModel.php';
 
 ?>
@@ -166,6 +169,7 @@
       padding: 5px 10px;
       font-size: 18px;
       font-weight: bold;
+      cursor: pointer;
     }
 
     #list-table th {
@@ -184,13 +188,6 @@
 
     #list-table tr:hover {
       background-color: #ddd;
-    }
-
-
-    .wrap {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
     </style>
 </head>

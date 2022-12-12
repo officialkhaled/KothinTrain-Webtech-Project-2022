@@ -1,15 +1,17 @@
 <?php
 
-  
+  session_start();
+
+  if(!isset($_SESSION['status'])){
+    header('location: ../login.php');
+  }
 
 ?>
 
 <html>
 <head>
-  
   <title>Main Menu | Admin</title>
   <link rel="stylesheet" href="../../assets/style/styleKhaled.css">
-
   <style>
     :root {
       --clr-bg: #e7eeef;

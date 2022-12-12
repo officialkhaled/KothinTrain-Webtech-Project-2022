@@ -77,13 +77,13 @@
         </td>
       </tr>
       <tr class="static-links">
-        <td align=center><a href="#">Terms & Conditions</a></td>
+        <td align=center><a href="t&c.php">Terms & Conditions</a></td>
       </tr>
       <tr class="static-links">
-        <td align=center><a href="#">Privacy Policy</a></td>
+        <td align=center><a href="privacyPolicy.php">Privacy Policy</a></td>
       </tr>
       <tr class="static-links">
-        <td align=center><a href="#">About Us</a></td>
+        <td align=center><a href="aboutUs.php">About Us</a></td>
       </tr>
     </table>
     
