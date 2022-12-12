@@ -1,17 +1,80 @@
 <?php
 
+  require_once '../models/userModel.php';
+
+  if($_SERVER['REQUEST_METHOD'] === "POST") {
+    $username = sanitize($_POST['username']);
+    $password = sanitize($_POST['password']);
+
+    $isValid = true;
+
+    if(empty($username)) {
+      $_SESSION['unameMsg'] = "Username is required";
+      $isValid = false;
+    }
+
+    if(empty($password)) {
+      $_SESSION['passMsg'] = "Password is required";
+      $isValid = false;
+    }
+
+    if($isValid === true) {
+      $isValid = false;
+
+      if(validateLogin($username, $password)) {
+        $isValid = true;
+      } else {
+        $_SESSION['loginMsg'] = "Invalid username or password";
+        header('location: ../views/login.php');
+      }
+      mysqli_close($con);
+
+      if($isValid) {
+        $_SESSION['username'] = $username;
+        $_SESSION['password'] = $password;
+
+        setcookie("rememberUser", $_POST['username'], time() + (86400 * 100));
+        setcookie("rememberPass", $_POST['password'], time() + (86400 * 100));
+
+        if($_POST['usertype'] === "admin") {
+          header('location: ../views/admin.php');
+        }
+        else if($_POST['usertype'] === "user") {
+          header('location: ../views/user.php');
+        }
+      } else {
+        header('location: ../views/login.php');
+      }
+    } else {
+      header('location: ../views/login.php');
+      $_SESSION['loginMsg'] = "Invalid username or password";
+    }
+   
+
+  } else {
+    $_SESSION['loginMsg'] = "Invalid request";
+    header('location: ../views/login.php');
+  }
+
+  function sanitize($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
   /**
   * ! Login Check
   * ? Check if the user is valid or not
   */
 
-  session_start(); 
+ /*  session_start(); 
   require_once "../models/userModel.php";
 
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  /*  */
+  /* 
   if($username == "" || $password == "" ){
     echo "<h2> Validation failed: Username or Password is missing! </h2>";
   }
@@ -37,7 +100,7 @@
     $_SESSION['user'] = true;
     setcookie('status', 'true', time()+3600, '/');
     header('location: ../views/admin/adminHome.php');
-
+ */
     /*
     if(mysqli_num_rows($result) > 0){
       $row = mysqli_fetch_array($result);
@@ -57,16 +120,16 @@
     } else if ($user['usertype'] === 'admin') {
       header('location: ../views/admin/adminHome.php');
     } 
-    */
+    
    
     
   } else {
     echo "<h2> Invalid username or password! </h2>";
   }
-  /*  */
+  
 
 
-?>
+
 
 
 
@@ -203,7 +266,6 @@
   }
 
 */
-
 
 
 

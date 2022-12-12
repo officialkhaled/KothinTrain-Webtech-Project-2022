@@ -4,5 +4,5 @@
   </div>
 
   <div class="title">
-    <center><h3 class="title">RailSheba</h3></center>
+    <center><h3 class="title">Kothin<span style="color: rgb(255, 136, 0);">Train</span></h3></center>
   </div>

@@ -1,54 +1,9 @@
 <?php
 
+  $date = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
+  setcookie("Visit", $date->format("F jS - g:i a"), time()+3600*24*30, '/');
+
   session_start();
-
-  if(isset($_GET['err'])){
-    if($_GET['err'] == 'invalid_request'){
-        echo "invalid request error..";
-    }
-
-    if($_GET['err'] == 'null'){
-        echo "null username/password";
-    }
-}
-
-/* 
-  require_once '../models/userModel.php';
-  if(isset($_POST['submit'])){
-    $con = getConnection();
-
-    $name = mysqli_real_escape_string($con, $_POST['name']);
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-
-    $pass = md5($_POST['password']);
-    $cpass = md5($_POST['cpassword']);
-    $user_type = $_POST['user_type'];
-
-    $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
-
-    $result = mysqli_query($conn, $select);
-
-    if(mysqli_num_rows($result) > 0){
-
-        $row = mysqli_fetch_array($result);
-
-        if($row['user_type'] == 'admin'){
-
-          $_SESSION['admin_name'] = $row['name'];
-          header('location:admin_page.php');
-
-        }elseif($row['user_type'] == 'user'){
-
-          $_SESSION['user_name'] = $row['name'];
-          header('location:user_page.php');
-
-        }
-      
-    }else{
-        $error[] = 'incorrect email or password!';
-    }
-
-  }; */
 
 ?>
 
@@ -58,23 +13,37 @@
 
   <title>Login</title>
   <link rel="stylesheet" href="../assets/style/style.css">
+  <style>
+    .input-field.valid {
+      border: 1px solid green;
+    }
+    .input-field.invalid {
+      border: 1px solid red;
+    }
 
+    .error-msg {
+      color: red;
+      font-size: 12px;
+    }
+  </style>
 </head>
 <body>
    
   <div class="form-container">
 
-    <form action="../controllers/loginCheck.php" method="post" onsubmit="return validateForm()">
+    <form action="../controllers/loginCheck.php" method="post" id="login-form" novalidate onsubmit="return isValid(this);">
       <h3>Login</h3>
-      <?php
-      if(isset($error)){
-        foreach($error as $error){
-          echo '<span class="error-msg">'.$error.'</span>';
-        };
-      };
-      ?>
-      <input type="username" id="uname" name="username" placeholder="Enter your username">
-      <input type="password" name="password" placeholder="Enter your password">
+
+      <input type="username" id="username" name="username" placeholder="Enter your username">
+      <?php echo isset($_SESSION['unameMsg']) ? $_SESSION['unameMsg'] : ""; ?>
+      <span id="unameMsg" ></span>
+      
+      <input type="password" id="password" name="password" placeholder="Enter your password">
+      <?php echo isset($_SESSION['passMsg']) ? $_SESSION['passMsg'] : ""; ?>
+      <span id="passMsg" ></span>
+
+      <?php echo isset($_SESSION['loginMsg']) ? $_SESSION['loginMsg'] : ""; ?>
+
       <input type="submit" name="submit" value="LOGIN" class="form-btn">
       <p>Don't have an account? <a href="register.php">Register now</a></p>
     </form>

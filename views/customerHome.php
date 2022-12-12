@@ -2,8 +2,8 @@
 
   session_start();
 
-  if(!isset($_SESSION['status'])){
-    header('location: login.php?err=invalid_request');
+  if(!isset($_SESSION['userid'])){
+    header('location: login.php');
   }
 
 ?>
@@ -35,6 +35,19 @@
 <div class="wrap">
   <div class="header"><?php include_once '../assets/common/header.php'; ?></div> 
   <div class="nav"><?php include_once '../assets/common/customerNavbar.php'; ?></div>
+  
+  <!--  -->
+
+  <?php 
+
+		if(isset($_COOKIE['Visit']))
+		{
+		$last = $_COOKIE['Visit'];
+		echo "<p style=color:green;> You last loggedin on ". "<b>".$last."</b></p>" ;
+		}		
+	 ?>
+
+  <!--  -->
 
   <div class="container">
     
