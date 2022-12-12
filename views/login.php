@@ -13,6 +13,7 @@
 
   <title>Login</title>
   <link rel="stylesheet" href="../assets/style/style.css">
+  <script src="../assets/js/loginValid.js"></script>
   <style>
     .input-field.valid {
       border: 1px solid green;
@@ -31,7 +32,7 @@
    
   <div class="form-container">
 
-    <form action="../controllers/loginCheck.php" name="pForm" method="post" id="login-form" novalidate onsubmit="return isValid(this);">
+    <form action="../controllers/loginCheck.php" name="pForm" method="post" id="login-form" >
       <h3>Login</h3>
 
       <input type="username" id="username" name="username" placeholder="Enter your username">
@@ -49,8 +50,6 @@
     </form>
 
   </div>
-
-  <script src="../assets/js/loginValid.js"></script>
 
 </body>
 </html>
