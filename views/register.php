@@ -18,10 +18,10 @@
    <form action="../controllers/registerCheck.php" method="post" onsubmit="return validateRegistrationForm()"> 
       <h3>Register</h3>
 
-      <input type="text" autocomplete="off" name="name" placeholder="Enter your name">
+      <input type="text" name="name" placeholder="Enter your name">
       <span id="nameErr" class="err-text"></span>
 
-      <input type="username" autocomplete="off" name="username" placeholder="Enter your username">
+      <input type="username" name="username" placeholder="Enter your username">
       <span id="unameErr" class="err-text"></span>
 
       <input type="password" name="password" placeholder="Enter your password">

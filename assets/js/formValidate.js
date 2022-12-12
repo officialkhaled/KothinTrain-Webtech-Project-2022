@@ -56,7 +56,17 @@ function validateRegistrationForm() {
     document.getElementById("cpassErr").innerHTML =
       "Password and Confirm Password must be same";
     return false;
+  }
+}
+
+function SHPassword(x) {
+  var checkbox = x.checked;
+
+  if (checkbox) {
+    document.getElementById("password").type = "text";
+    document.getElementById("showhidepwd").textContent = "Hide Password";
   } else {
-    return true;
+    document.getElementById("password").type = "password";
+    document.getElementById("showhidepwd").textContent = "Show Password";
   }
 }

@@ -3,10 +3,16 @@
 <head>
   <title>Login</title>
   <link rel="stylesheet" href="../assets/style/style.css">
+
   <style>
     .err-text{
       color: tomato;
       font-size: 16px;
+    }
+
+    #showhidepwd{
+      font-size: 18px;
+      margin-right: 8px;
     }
   </style>
 </head>
@@ -14,7 +20,7 @@
    
   <div class="form-container">
 
-    <form action="../controllers/loginCheck.php" method="post" id="login-form" onsubmit="return validateLoginForm()" onclick="">
+    <form action="../controllers/loginCheck.php" method="post" id="login-form" onsubmit="return validateLoginForm()" novalidate onclick="">
       <h3>Login</h3>
 
       <input type="username" id="username" name="username" placeholder="Enter your username" class="text-field">
@@ -24,8 +30,11 @@
       <span id="passMsg" class="err-text"></span>
 
       <div id="showPass-card">
-        <input type="checkbox" id="showPass" value="Show Password">
-        <label for="showPass"> Show Password</label>
+        <input type="checkbox" id="showPass" onchange="return SHPassword(this)" value="Show Password"><span id="showhidepwd">Show Password</span>
+      </div>
+
+      <div id="rememberMe-card">
+        <input type="checkbox" id="rememberMe" onchange="" value="Remember Me"><span id="">Remember Me</span>
       </div>
 
       <input type="submit" name="submit" value="LOGIN" class="form-btn">
