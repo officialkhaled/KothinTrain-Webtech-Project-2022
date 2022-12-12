@@ -36,6 +36,7 @@
         setcookie("rememberUser", $_POST['username'], time() + (86400 * 100));
         setcookie("rememberPass", $_POST['password'], time() + (86400 * 100));
 
+        /* Check usertype */
         if($_POST['usertype'] === "admin") {
           header('location: ../views/admin.php');
         }
@@ -45,6 +46,7 @@
       } else {
         header('location: ../views/login.php');
       }
+      /*  */
     } else {
       header('location: ../views/login.php');
       $_SESSION['loginMsg'] = "Invalid username or password";

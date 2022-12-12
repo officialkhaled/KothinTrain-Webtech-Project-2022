@@ -202,13 +202,13 @@
                   </td>
                 </tr>
                 <tr>
-                  <td><a href="editProfile.php">Edit Profile</a></td>
+                  <td><a href="editProfileAdmin.php">Edit Profile</a></td>
                 </tr>
                 <tr>
                   <td class="img-box" colspan="2">
                     <img src="" alt="img" width="100px" height="100px" /><a
                       href="#"
-                      ><br />Change</a
+                      ><br />Update image</a
                     >
                   </td>
                 </tr>

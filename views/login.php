@@ -1,8 +1,5 @@
 <?php
 
-  $date = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
-  setcookie("Visit", $date->format("F jS - g:i a"), time()+3600*24*30, '/');
-
   session_start();
 
 ?>
@@ -13,18 +10,11 @@
 
   <title>Login</title>
   <link rel="stylesheet" href="../assets/style/style.css">
-  <script src="../assets/js/loginValid.js"></script>
+  
   <style>
-    .input-field.valid {
-      border: 1px solid green;
-    }
-    .input-field.invalid {
-      border: 1px solid red;
-    }
-
-    .error-msg {
+    .err-text{
       color: red;
-      font-size: 12px;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -32,24 +22,23 @@
    
   <div class="form-container">
 
-    <form action="../controllers/loginCheck.php" name="pForm" method="post" id="login-form" >
+    <form action="../controllers/loginCheck.php" name="myForm" method="post" id="login-form" onsubmit="return validateLoginForm()" >
       <h3>Login</h3>
 
-      <input type="username" id="username" name="username" placeholder="Enter your username">
-      <?php echo isset($_SESSION['unameMsg']) ? $_SESSION['unameMsg'] : ""; ?>
-      <span id="unameMsg" class="">asdas</span>
+      <input type="username" id="username" name="username" placeholder="Enter your username" class="text-field">
+      <span id="unameMsg" class="err-text"></span>
       
-      <input type="password" id="password" name="password" placeholder="Enter your password">
-      <?php echo isset($_SESSION['passMsg']) ? $_SESSION['passMsg'] : ""; ?>
-      <span id="passMsg" class="">asdasd</span>
+      <input type="password" id="password" name="password" placeholder="Enter your password" class="text-field">
+      <span id="passMsg" class="err-text"></span>
 
-      <?php echo isset($_SESSION['loginMsg']) ? $_SESSION['loginMsg'] : ""; ?>
 
       <input type="submit" name="submit" value="LOGIN" class="form-btn">
       <p>Don't have an account? <a href="register.php">Register now</a></p>
     </form>
 
   </div>
+
+  <script src="../assets/js/formValidate.js"></script>
 
 </body>
 </html>

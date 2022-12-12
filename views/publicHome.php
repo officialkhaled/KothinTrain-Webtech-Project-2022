@@ -36,6 +36,24 @@
       justify-content: center;
       align-items: center;
     }
+    .static-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .static-links a {
+      color: var(--clr-primary);
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 20px;
+      text-decoration: none;
+    }
+
+    .static-links a:hover {
+      color: var(--clr-accent);
+    }
   </style>
 </head>
 <body>
@@ -54,7 +72,18 @@
         <td><p align=center class="pub-para">We are delighted to have you among us. On behalf of all the members and the management, we would like to extend our warmest welcome and good wishes! Trains are wonderful. To travel by train is to see nature and human beings, towns and churches, and rivers, in fact, to see life.”. Our goal is to make your life easier from traditional system. Kothin.com is a complete Rail project that can manage a whole system through online. Hopefully, you will have a great  experience through our system. <br></p></td>
       </tr>
       <tr>
-        <td><h2 class="pub-title" style="color: red;">Login to buy tickets!</h2></td>
+        <td>
+          <h2 class="pub-title" style="color: red;">Login to buy tickets!</h2>
+        </td>
+      </tr>
+      <tr class="static-links">
+        <td align=center><a href="#">Terms & Conditions</a></td>
+      </tr>
+      <tr class="static-links">
+        <td align=center><a href="#">Privacy Policy</a></td>
+      </tr>
+      <tr class="static-links">
+        <td align=center><a href="#">About Us</a></td>
       </tr>
     </table>
     

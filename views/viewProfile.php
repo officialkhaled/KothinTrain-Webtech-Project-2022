@@ -203,7 +203,7 @@
                   <td class="img-box" colspan="2">
                     <img src="" alt="img" width="100px" height="100px" /><a
                       href="#"
-                      ><br />Change</a
+                      ><br />Update image</a
                     >
                   </td>
                 </tr>

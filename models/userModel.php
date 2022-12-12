@@ -9,45 +9,94 @@
       die("Connection failed: " . mysqli_connect_error());
     }
 
-    $stmt = mysqli_stmt_init($con);
-    mysqli_stmt_prepare($stmt, "SELECT * FROM user WHERE username=? AND password=?");
-    mysqli_stmt_bind_param($stmt, "ss", $username, $password);
-    mysqli_stmt_execute($stmt);
+    $sql = "select * from user where username='{$username}' and password='{$password}'";
+		$result = mysqli_query($con, $sql);
+    $user = mysqli_fetch_assoc($result);
 
-    $result = mysqli_stmt_get_result($stmt);
+    if (count($user) > 0) {
+      if ($user['usertype'] == 'admin') {
+        header('location: ../views/adminHome.php');
+      } else if ($user['usertype'] == 'user') {
+        header('location: ../views/customerHome.php');
+      }
+    } else {
+      return false;
+    }
+    
+  }
+
+
+  function getPersonalData($accNumber) {
+    $conn = getconnection();
+    $sql = "select * from users where Account_Number='{$accNumber}'";
+    $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    return $count;
+
+    if($count > 0){
+      while($row = mysqli_fetch_assoc($result)){
+        $args = array(
+          "Name" => $row['Name'],
+          "Phone" => $row['Phone'],
+          "Email" => $row['Email'],
+          "NID" => $row['NID'],
+          "dob" => $row['dob'],
+          "Permanent_Add" => $row['Permanent_Add'],
+          "Temporary_Add" => $row['Temporary_Add'],
+          "Area_Code" => $row['Area_Code'],
+          "Gender" => $row['Gender'],
+          "Account_Type" => $row['Account_Type'],
+          "Account_Number" => $row['Account_Number'],
+          "Balance" => $row['Balance'],
+          "Picture" => $row['Picture'],
+        );
+      }
+        return $args;
+    } else {
+      echo 'No Data Found!!!';
+    }
   }
   
-  function search ($username) {
-    $con = getConnection();
+  function customerList ($Fsearch) {
+    $conn = getconnection();
+    $sql = "select * from users where Name='{$Fsearch}'";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
 
-    if (!$con) {
-      die("Connection failed: " . mysqli_connect_error());
+    if($count > 0){
+      while($row = mysqli_fetch_assoc($result)){
+        $args = array(
+        "Name" => $row['Name'],
+        "Phone" => $row['Phone'],
+        "Email" => $row['Email'],
+        "NID" => $row['NID'],
+        "dob" => $row['dob'],
+        "Permanent_Add" => $row['Permanent_Add'],
+        "Temporary_Add" => $row['Temporary_Add'],
+        "Area_Code" => $row['Area_Code'],
+        "Gender" => $row['Gender'],
+        "Account_Type" => $row['Account_Type'],
+        "Account_Number" => $row['Account_Number'],
+        "Balance" => $row['Balance'],
+        );
+      }
+      return $args;
+    } else {
+      echo 'No Data Found!!!';
     }
 
-    $stmt = mysqli_stmt_init($con);
-    mysqli_stmt_prepare($stmt, "SELECT * FROM user WHERE username LIKE ?");
-    $username = "%".$username."%";
-    mysqli_stmt_bind_param($stmt, "s", $username);
-    mysqli_stmt_execute($stmt);
-
-    $result = mysqli_stmt_get_result($stmt);
-
-    return $result;
-  }
-  
+}
 
 
   function registration($name, $username, $password, $type) { 
     $con = getConnection();
 
-    $sql = "insert into users values('', '{$user['name']}', '{$user['username']}', '{$user['password']}', '{$user['type']}')";
+    $sql = "insert into users values('', '{$user['name']}', '{$user['username']}', '{$user['password']}', '{$user['usertype']}')";
 
     $status = mysqli_query($con, $sql);
     return $status;
 
   }
+
 
   function getAllUser($user){
     $con = getConnection();
