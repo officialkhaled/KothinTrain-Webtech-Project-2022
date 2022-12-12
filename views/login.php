@@ -1,19 +1,11 @@
-<?php
-
-  session_start();
-
-?>
-
 
 <html>
 <head>
-
   <title>Login</title>
   <link rel="stylesheet" href="../assets/style/style.css">
-  
   <style>
     .err-text{
-      color: red;
+      color: tomato;
       font-size: 16px;
     }
   </style>
@@ -22,8 +14,16 @@
    
   <div class="form-container">
 
-    <form action="../controllers/loginCheck.php" name="myForm" method="post" id="login-form" onsubmit="return validateLoginForm()" >
+    <form action="../controllers/loginCheck.php" method="post" id="login-form" onsubmit="return validateLoginForm()" onclick="">
       <h3>Login</h3>
+
+      <?php
+        if(isset($error)) {
+          foreach($error as $err) {
+            echo "<span class='error-msg'>".$error."</span>";
+          }
+        }
+      ?>
 
       <input type="username" id="username" name="username" placeholder="Enter your username" class="text-field">
       <span id="unameMsg" class="err-text"></span>

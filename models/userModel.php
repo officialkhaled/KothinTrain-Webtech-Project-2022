@@ -5,20 +5,13 @@
   function validateLogin ($username, $password) {
     $con = getConnection();
 
-    if (!$con) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-
     $sql = "select * from user where username='{$username}' and password='{$password}'";
-		$result = mysqli_query($con, $sql);
-    $user = mysqli_fetch_assoc($result);
 
-    if (count($user) > 0) {
-      if ($user['usertype'] == 'admin') {
-        header('location: ../views/adminHome.php');
-      } else if ($user['usertype'] == 'user') {
-        header('location: ../views/customerHome.php');
-      }
+		$result = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($result);
+
+    if ($count > 0) {
+      return true;
     } else {
       return false;
     }
