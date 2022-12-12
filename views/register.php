@@ -5,16 +5,9 @@
   <title>Register</title>
   <link rel="stylesheet" href="../assets/style/style.css">
   <style>
-    .input-field.valid {
-      border: 1px solid green;
-    }
-    .input-field.invalid {
-      border: 1px solid tomato;
-    }
-
     .error-msg {
       color: tomato;
-      font-size: 12px;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -22,34 +15,26 @@
    
 <div class="form-container">
 
-   <form action="../controllers/registerCheck.php" method="post" > 
+   <form action="../controllers/registerCheck.php" method="post" onsubmit="return validateRegistrationForm()"> 
       <h3>Register</h3>
 
-      <?php
-        if(isset($error)){
-          foreach($error as $error){
-              echo '<span class="error-msg">'.$error.'</span>';
-          };
-        };
-      ?>
-
       <input type="text" autocomplete="off" name="name" placeholder="Enter your name">
-      <span id="nameErr" class=""></span>
+      <span id="nameErr" class="err-text"></span>
 
       <input type="username" autocomplete="off" name="username" placeholder="Enter your username">
-      <span id="unameErr" class=""></span>
+      <span id="unameErr" class="err-text"></span>
 
       <input type="password" name="password" placeholder="Enter your password">
-      <span id="passErr" class=""></span>
+      <span id="passErr" class="err-text"></span>
 
       <input type="password" name="cpassword" placeholder="Confirm your password">
-      <span id="cpassErr" class=""></span>
+      <span id="cpassErr" class="err-text"></span>
 
       <select name="user_type">
          <option value="customer">Customer</option>
          <option value="admin">Admin</option>
       </select>
-      <span id="typeErr" class=""></span>
+      <span id="typeErr" class="err-text"></span>
 
 
       <input type="submit" name="submit" value="register now" class="form-btn">
@@ -58,5 +43,6 @@
 
 </div>
 
+<script src="../assets/js/formValidate.js"></script>
 </body>
 </html>

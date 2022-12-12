@@ -5,7 +5,7 @@
   function validateLogin ($username, $password) {
     $con = getConnection();
 
-    $sql = "select * from user where username='{$username}' and password='{$password}'";
+    $sql = "SELECT * FROM user WHERE username='{$username}' and password='{$password}'";
 
 		$result = mysqli_query($con, $sql);
     $count = mysqli_num_rows($result);
@@ -18,6 +18,21 @@
     
   }
 
+  
+  function registration($name, $username, $password, $cpassword, $user_type) { 
+    $con = getConnection();
+
+    $sql = "INSERT INTO user VALUES('{$name}', '{$username}', '{$password}', '{$user_type}')";
+
+    $result = mysqli_query($con, $sql);
+    
+    if($result){
+      return true;
+    }else{
+      return false;
+    }
+
+  }
 
   function getPersonalData($accNumber) {
     $conn = getconnection();
@@ -78,17 +93,6 @@
     }
 
 }
-
-
-  function registration($name, $username, $password, $type) { 
-    $con = getConnection();
-
-    $sql = "insert into users values('', '{$user['name']}', '{$user['username']}', '{$user['password']}', '{$user['usertype']}')";
-
-    $status = mysqli_query($con, $sql);
-    return $status;
-
-  }
 
 
   function getAllUser($user){
