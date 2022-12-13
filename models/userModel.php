@@ -18,7 +18,6 @@
     
   }
 
-  
   function validateRegistration($name, $username, $password, $cpassword, $user_type) { 
     $con = getConnection();
 
@@ -114,10 +113,6 @@
     }
   }
   
-
-  function editProfile($id) {
-    
-  }
 
   function deleteUser($id){
     $con = getConnection();

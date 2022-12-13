@@ -7,8 +7,6 @@
     header('location: ../login.php');
   }
 
-  $id = $_GET['update'];
-
   $con = getConnection();
   $sql = "SELECT * FROM user WHERE username='{$_SESSION['username']}'";
   $result = mysqli_query($con, $sql);
@@ -241,7 +239,6 @@
             <li><a href="viewProfileAdmin.php">View Profile</a></li>
             <li><a href="editProfileAdmin.php">Edit Profile</a></li>
             <li><a href="#">Change Profile Picture</a></li>
-            <li><a href="#">Change Password</a></li>
             <li><a href="#">Edit Album</a></li>
             <li><a href="viewUsers.php">User List</a></li>
           </ul>

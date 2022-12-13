@@ -6,7 +6,6 @@
     header('location: ../login.php');
   }
 
-
 ?>
 
 <html>
