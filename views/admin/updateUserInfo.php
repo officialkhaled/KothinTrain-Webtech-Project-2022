@@ -310,7 +310,7 @@
         <td class="right-section" style="padding: 80px">
           <fieldset>
             <legend>Update User Info</legend>
-              <form action="" method="post" onsubmit="return validateUpdateForm()">
+              <form action="" method="post" onkeyup="return validateUpdateForm()" onsubmit="return validateUpdateForm()">
                 <table class="table">
                   <tr>
                     <td><label for="name">Name</label></td>

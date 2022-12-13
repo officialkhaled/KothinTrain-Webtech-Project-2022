@@ -13,7 +13,7 @@
    
 <div class="form-container">
 
-   <form action="../controllers/registerCheck.php" method="post" onsubmit="return validateRegistrationForm()" enctype="multipart/form-data"> 
+   <form action="../controllers/registerCheck.php" method="post" onsubmit="return validateRegistrationForm()" onkeyup="validateRegistrationForm()" enctype="multipart/form-data"> 
       <h3>Register</h3>
 
       <input type="text" id="name" name="name" placeholder="Enter your name">
@@ -25,7 +25,7 @@
       <input type="password" id="password" name="password" placeholder="Enter your password">
       <span id="passErr" class="err-text"></span>
 
-      <input type="password" id="cpassword" name="cpassword" placeholder="Confirm your password" onkeyup="return checkPassword()">
+      <input type="password" id="cpassword" name="cpassword" placeholder="Confirm your password">
       <span id="cpassErr" class="err-text"></span>
 
       <select name="user_type" id="user_type">
