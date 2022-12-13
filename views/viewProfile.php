@@ -182,16 +182,14 @@
             <li><a href="viewProfile.php">View Profile</a></li>
             <li><a href="editProfile.php">Edit Profile</a></li>
             <li><a href="#">Change Profile Picture</a></li>
-            <li><a href="#">Change Password</a></li>
             <li><a href="#">View Album</a></li>
-            <li><a href="#">View Ticket Cart</a></li>
           </ul>
         </td>
         <td class="right-section" style="padding: 80px">
           <fieldset>
             <legend>PROFILE</legend>
             <form
-              action="../controllers/regCheck.php"
+              action=""
               method="post"
               enctype="multipart/form-data"
             >
@@ -215,6 +213,11 @@
                   <th>Profile Picture</th>
                   <td><?php echo $row['img_data'] ?></td>
                 </tr>
+
+                <tr>
+                  <td colspan="2"><center><a href="editProfile.php?update=<?php echo $row['id']; ?>" id="update-btn">Update</a></center></td>
+                </tr>
+
               </table>
             </form>
           </fieldset>

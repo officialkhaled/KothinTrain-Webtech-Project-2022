@@ -217,7 +217,7 @@
             <form
               action=""
               method="post"
-              enctype="multipart/form-data">
+              enctype="multipart/form-data" >
               <table align="center" class="table">
                 <tr>
                   <th>Name</th>
