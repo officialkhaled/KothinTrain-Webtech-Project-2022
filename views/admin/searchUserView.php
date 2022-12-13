@@ -1,7 +1,7 @@
 <?php
 
   session_start();
-  require_once '../../models/db.php';
+  require_once '../../models/userModel.php';
 
   /* if(!isset($_SESSION['status'])){
     header('location: ../login.php');
@@ -254,34 +254,10 @@
                   <?php
 
                     if(isset($_POST['submit'])) {
-                      $con = getConnection();
-                      
                       $search = $_POST['search'];
+                      $searchResult = searchUser($search);
 
-                      $sql = "SELECT * FROM user WHERE name like '%$search%' or username like '%$search%' or id like '%$search%'";
-                      $result = mysqli_query($con, $sql);
-
-                      if($result) {
-                        if(mysqli_num_rows($result) > 0) {
-                          echo "<tr>
-                                  <th>ID</th>
-                                  <th>Name</th>
-                                  <th>Username</th>
-                                  <th>User Type</th>
-                                </tr>";
-                                while($row = mysqli_fetch_assoc($result)) {
-                                  echo "<tr>
-                                  <td>{$row['id']}</td>
-                                  <td>{$row['name']}</td>
-                                  <td>{$row['username']}</td>
-                                  <td>{$row['usertype']}</td>
-                                  </tr>";
-                                }
-                        } else {
-                          echo'<h2 class=text-danger>Data not found!</h2>';
-                        }
-                      }
-
+                      echo $searchResult;
                     }
                   ?>
                 </table>
