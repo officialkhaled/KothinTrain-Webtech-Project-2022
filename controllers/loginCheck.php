@@ -5,22 +5,30 @@
 
   $username = $_POST['username'];
   $password = $_POST['password'];
+  $usertype = $_POST['usertype'];
 
-  $status = validateLogin($username, $password);
+  $status = validateLogin($username, $password, $usertype);
 
   if($status) {
     $_SESSION['status'] = true;
     $_SESSION['username'] = $username;
+    $_SESSION['usertype'] = $usertype;
     //$_SESSION['name'] = $name;
     setcookie('status', 'true', time()+3600, '/');
 
     /* Check usertype */ 
-
-    header('location: ../views/admin/adminHome.php?username='.$username);
+    if($usertype === 'admin') {
+      header('location: ../views/admin/adminHome.php');
+    } else if($usertype === 'customer') {
+      header('location: ../views/customerHome.php');
+    } else {
+      header('location: ../views/login.php');
+    }
+    header('location: ../views/admin/adminHome.php');
   } else {
-    header('location: ../views/login.php');
+    echo "Invalid username or password!";
   }
-  
+
   /*
   // USERNAME VALIDATION
   if($username == "" || $password == "" ){

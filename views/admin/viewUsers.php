@@ -296,7 +296,7 @@
                       
                       // UPDATE BUTTON
                       ?>
-                      <td><center><a id="update-btn" href="viewUsers.php?update=<?php echo $row['id']; ?>">Update</a></center></td>
+                      <td><center><a id="update-btn" href="updateUserInfo.php?update=<?php echo $row['id']; ?>">Update</a></center></td>
                       <?php
 
                       // DELETE BUTTON

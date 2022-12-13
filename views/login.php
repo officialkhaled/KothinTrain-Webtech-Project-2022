@@ -14,6 +14,12 @@
       font-size: 18px;
       margin-right: 8px;
     }
+
+    #usertype:hover {
+      background-color: var(--clr-accent);
+      border: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -33,9 +39,10 @@
         <input type="checkbox" id="showPass" onchange="return SHPassword(this)" value="Show Password"><span id="showhidepwd">Show Password</span>
       </div>
 
-      <div id="rememberMe-card">
-        <input type="checkbox" name=remember id="rememberMe" onchange="" value="Remember Me"><span id="remember">Remember Me</span>
-      </div>
+      <select name="usertype" id="usertype">
+         <option value="customer">Customer</option>
+         <option value="admin">Admin</option>
+      </select>
 
       <input type="submit" name="submit" value="LOGIN" class="form-btn">
       <p>Don't have an account? <a id="link-color" href="register.php">Register now</a></p>

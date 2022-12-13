@@ -2,10 +2,10 @@
 
   require_once 'db.php';
 
-  function validateLogin($username, $password) {
+  function validateLogin($username, $password, $usertype) {
     $con = getConnection();
 
-    $sql = "SELECT * FROM user WHERE username='{$username}' and password='{$password}'";
+    $sql = "SELECT * FROM user WHERE username='{$username}' and password='{$password}' and usertype='{$usertype}'";
 
 		$result = mysqli_query($con, $sql);
     $count = mysqli_num_rows($result);
@@ -63,10 +63,20 @@
     }
   }
 
+  function updateUser($id) {
+    $con = getConnection();
+
+    $sql = "SELECT * FROM user WHERE id='{$id}'";
+    $result = mysqli_query($con, $sql);
+
+    $row = mysqli_fetch_assoc($result);
+    echo $row['name'];
+  }
+
   function getProfile($username) {
     $con = getconnection();
 
-    $sql = "SELECT * FROM user WHERE username='{$id}'";
+    $sql = "SELECT * FROM user WHERE username='{$username}'";
     $result = mysqli_query($con, $sql);
     $count = mysqli_num_rows($result);
 
@@ -76,7 +86,7 @@
           "name" => $row['name'],
           "username" => $row['username'],
           "password" => $row['password'],
-          "user_type" => $row['user_type'],
+          "usertype" => $row['usertype'],
         );
       }
         return $args;
@@ -86,7 +96,7 @@
   }
   
 
-  function editProfile() {
+  function editProfile($id) {
     
   }
 
