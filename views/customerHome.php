@@ -46,7 +46,7 @@
       align-items: center;
     }
     #buy-btn {
-      background-color: var(--clr-primary);
+      background-color: tomato;
       color: #fff;
       font-size: 20px;
       font-weight: bold;
@@ -55,8 +55,9 @@
       border: none;
       cursor: pointer;
     }
+
     #buy-btn:hover {
-      background-color: var(--clr-accent);
+      background-color: green;
       color: #fff;
       font-size: 20px;
       font-weight: bold;
