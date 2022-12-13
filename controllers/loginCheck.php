@@ -9,10 +9,15 @@
   $status = validateLogin($username, $password);
 
   if($status) {
-    $_SESSION['status'] = true;
+    $_SESSION['user']['username'] = $username;
+    $_SESSION['user']['password'] = $password;
+    $_SESSION['user']['name'] = $name;
+
+    $_SESSION['user'] = true;
     setcookie('status', 'true', time()+3600, '/');
 
     /* Check usertype */ 
+
     header('location: ../views/admin/adminHome.php');
   } else {
     header('location: ../views/login.php');

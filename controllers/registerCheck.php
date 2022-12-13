@@ -15,7 +15,7 @@
    * *image upload code
    * */ 
 
-  $status = registration($name, $username, $password, $cpassword, $user_type);
+  $status = validateRegistration($name, $username, $password, $cpassword, $user_type);
 
   if($status){
 

@@ -88,7 +88,7 @@
     <!--  -->
     <table>
       <tr>
-        <td><h2 class="pub-title">Welcome  <?php //echo "$_SESSION[$name]"; ?>, to our Train Ticket Management System</h2></td>
+        <td><h2 class="pub-title">Welcome  <?php echo $_SESSION['user']['name']; ?>, to our Train Ticket Management System</h2></td>
       </tr>
       <tr>
         <td><p align=center class="pub-para">We are delighted to have you among us. On behalf of all the members and the management, we would like to extend our warmest welcome and good wishes! Trains are wonderful. To travel by train is to see nature and human beings, towns and churches, and rivers, in fact, to see life.”. Our goal is to make your life easier from traditional system. Kothin.com is a complete Rail project that can manage a whole system through online. Hopefully, you will have a great  experience through our system. <br></p></td>
@@ -97,7 +97,6 @@
         <td align=center><a id="buy-btn" href="viewUsers.php">View Users List</a></td>
       </tr>
     </table>
-    
     <!--  -->
   </div>
 

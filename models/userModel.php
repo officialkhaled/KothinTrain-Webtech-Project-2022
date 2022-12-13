@@ -19,7 +19,7 @@
   }
 
   
-  function registration($name, $username, $password, $cpassword, $user_type) { 
+  function validateRegistration($name, $username, $password, $cpassword, $user_type) { 
     $con = getConnection();
 
     $sql = "INSERT INTO user VALUES('', '{$name}', '{$username}', '{$password}', '{$user_type}', '')";
@@ -34,28 +34,6 @@
 
   }
 
-  function getProfile($id) {
-    $con = getconnection();
-
-    $sql = "SELECT * FROM user WHERE id='{$id}'";
-    $result = mysqli_query($con, $sql);
-    $count = mysqli_num_rows($result);
-
-    if($count > 0){
-      while($row = mysqli_fetch_assoc($result)){
-        $args = array(
-          "name" => $row['name'],
-          "username" => $row['username'],
-          "password" => $row['password'],
-          "user_type" => $row['user_type'],
-        );
-      }
-        return $args;
-    } else {
-      echo 'No Data Found!!!';
-    }
-  }
-  
   function searchUser($search) {
     $con = getConnection();
 
@@ -84,6 +62,29 @@
       }
     }
   }
+
+  function getProfile($id) {
+    $con = getconnection();
+
+    $sql = "SELECT * FROM user WHERE id='{$id}'";
+    $result = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($result);
+
+    if($count > 0){
+      while($row = mysqli_fetch_assoc($result)){
+        $args = array(
+          "name" => $row['name'],
+          "username" => $row['username'],
+          "password" => $row['password'],
+          "user_type" => $row['user_type'],
+        );
+      }
+        return $args;
+    } else {
+      echo 'No Data Found!!!';
+    }
+  }
+  
 
   function editProfile() {
     
