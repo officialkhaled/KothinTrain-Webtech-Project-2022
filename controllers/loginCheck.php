@@ -17,14 +17,13 @@
     setcookie('status', 'true', time()+3600, '/');
 
     /* Check usertype */ 
-    if($usertype === 'admin') {
+    if($usertype == 'admin') {
       header('location: ../views/admin/adminHome.php');
-    } else if($usertype === 'customer') {
+    } else if($usertype == 'customer') {
       header('location: ../views/customerHome.php');
     } else {
       header('location: ../views/login.php');
     }
-    header('location: ../views/admin/adminHome.php');
   } else {
     echo "Invalid username or password!";
   }
