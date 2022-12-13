@@ -7,6 +7,7 @@
   }
 
 
+
 ?>
 
 <html>
@@ -80,7 +81,7 @@
       <img src="..\..\assets\img\logo.png" alt="logo">
     </div>
     <div class="title">
-      <center><h3 class="title">RailSheba</h3></center>
+      <center><h3 class="title">Kothin<span style="color: rgb(255, 136, 0);">Train</span></h3></center>
     </div>
   </div>  
   <div class="nav"><?php include_once '../../assets/common/adminNavbar.php'; ?></div>
@@ -107,6 +108,8 @@
   </div>
 
 </div>
+
+
 </body>
 </html>
 

@@ -19,13 +19,13 @@
 
   if($status){
 
-    $_SESSION['status'] = true;
+    //$_SESSION['status'] = true;
     /**
      * *image upload code
      */
-    setcookie('status', 'true', time()+3600, '/');
+    //setcookie('status', 'true', time()+3600, '/');
     header('location: ../views/login.php');
-  }else{
+  } else {
     echo "Error";
   }
 ?>

@@ -2,9 +2,9 @@
 
   session_start();
 
-  if(!isset($_SESSION['status'])){
+  /* if(!isset($_SESSION['status'])){
     header('location: ../login.php');
-  }
+  } */
 
 ?>
 
@@ -142,6 +142,57 @@
       margin: 14px 0;
       font-weight: bold;
     }
+    #search {
+      width: 80%;
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      padding: 10px;
+      margin: 10px;
+      background: var(--clr-bg);
+    }
+
+    #search:focus {
+      outline: none;
+    }
+
+    #search:hover {
+      border: 1px solid var(--clr-accent);
+    }
+
+    #click {
+      background: var(--clr-secondary);
+      color: #fff;
+      border-radius: 10px;
+      border: none;
+      padding: 6px;
+      width: 20%;
+    }
+
+    #click:hover {
+      background: var(--clr-accent);
+      color: #fff;
+    }
+
+    #blur {
+      background: var(--clr-secondary);
+      color: #fff;
+      border-radius: 10px;
+      border: none;
+      padding: 6px;
+      width: 8%;
+      opacity: 40%;
+    }
+
+    #blur:hover {
+      opacity: 100%;
+      background: var(--clr-secondary);
+      color: #fff;
+    }
+
+    #searchResult {
+      margin-top: 40px;
+    }
     </style>
 </head>
 <body>
@@ -152,7 +203,7 @@
       <img src="..\..\assets\img\logo.png" alt="logo">
     </div>
     <div class="title">
-      <center><h3 class="title">RailSheba</h3></center>
+      <center><h3 class="title">Kothin<span style="color: rgb(255, 136, 0);">Train</span></h3></center>
     </div>
   </div>  
   <div class="nav"><?php include_once '../../assets/common/adminNavbar.php'; ?></div>
@@ -163,8 +214,13 @@
       <tr>
         <td class="right-section" style="padding: 80px">
           <fieldset>
-            <legend>Search Result</legend>
-            
+            <legend>Search</legend>
+              <form action="" method="post">
+                <input type="text" id="search" placeholder="Search by name">
+                <input type="button" id="click" name="submit" value="Search" onclick="return Search()">
+                <input type="button" id="blur" name="refresh" value="Refresh" onclick="location.window()">
+                <h3 id="searchResult">Search Result will appear here</h3>
+              </form>
           </fieldset>
         </td>
       </tr>
@@ -176,6 +232,26 @@
   </div>
 
 </div>
+
+<script>
+  /* AJAX & JSON */
+  function Search() {
+    let search = document.getElementById('search').value;
+    let jsearch = {'search': search};
+    let json = JSON.stringify(jsearch);
+    let xhttp = new XMLHttpRequest();
+    xhttp.open('POST', '../../controllers/userListSearch.php', true);
+
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send('data='+json);
+    xhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        document.getElementsByTagName('h3')[0].innerHTML = this.responseText;
+      }
+    }
+  }
+</script>
+
 </body>
 </html>
 

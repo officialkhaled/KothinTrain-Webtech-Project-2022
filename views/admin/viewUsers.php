@@ -2,9 +2,9 @@
 
   session_start();
 
-  if(!isset($_SESSION['status'])){
+/*   if(!isset($_SESSION['status'])){
     header('location: ../login.php');
-  }
+  }  */
 
   require_once '../../models/userModel.php';
 
@@ -296,6 +296,7 @@
 
   if(isset($_GET['delete'])) {
     $id = $_GET['delete'];
+    
     $result = deleteUser($id);
 
     if($result == true) {

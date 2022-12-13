@@ -1,11 +1,9 @@
-
-
 <html>
 <head>
   <title>Register</title>
   <link rel="stylesheet" href="../assets/style/style.css">
   <style>
-    .error-msg {
+    .err-text{
       color: tomato;
       font-size: 16px;
     }
@@ -15,22 +13,22 @@
    
 <div class="form-container">
 
-   <form action="../controllers/registerCheck.php" method="post" onsubmit="return validateRegistrationForm()"> 
+   <form action="../controllers/registerCheck.php" method="post" onsubmit="return validateRegistrationForm()" enctype="multipart/form-data"> 
       <h3>Register</h3>
 
-      <input type="text" name="name" placeholder="Enter your name">
+      <input type="text" id="name" name="name" placeholder="Enter your name">
       <span id="nameErr" class="err-text"></span>
 
-      <input type="username" name="username" placeholder="Enter your username">
+      <input type="username" id="username" name="username" placeholder="Enter your username">
       <span id="unameErr" class="err-text"></span>
 
-      <input type="password" name="password" placeholder="Enter your password">
+      <input type="password" id="password" name="password" placeholder="Enter your password">
       <span id="passErr" class="err-text"></span>
 
-      <input type="password" name="cpassword" placeholder="Confirm your password">
+      <input type="password" id="cpassword" name="cpassword" placeholder="Confirm your password">
       <span id="cpassErr" class="err-text"></span>
 
-      <select name="user_type">
+      <select name="user_type" id="user_type">
          <option value="customer">Customer</option>
          <option value="admin">Admin</option>
       </select>

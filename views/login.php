@@ -20,7 +20,7 @@
    
   <div class="form-container">
 
-    <form action="../controllers/loginCheck.php" method="post" id="login-form" onsubmit="return validateLoginForm()" novalidate onclick="">
+    <form action="../controllers/loginCheck.php" method="post" id="login-form" onsubmit="return validateLoginForm()" enctype="multipart/form-data" onclick="">
       <h3>Login</h3>
 
       <input type="username" id="username" name="username" placeholder="Enter your username" class="text-field">
