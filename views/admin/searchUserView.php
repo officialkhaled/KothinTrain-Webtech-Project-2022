@@ -1,6 +1,7 @@
 <?php
 
   session_start();
+  require_once '../../models/db.php';
 
   /* if(!isset($_SESSION['status'])){
     header('location: ../login.php');
@@ -193,6 +194,37 @@
     #searchResult {
       margin-top: 40px;
     }
+    .table {
+      border-collapse: collapse;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .table td, .table th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    .table tr:nth-child(even){background-color: #f2f2f2;}
+
+    .table tr:hover {background-color: #ddd;}
+
+    .table th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: var(--clr-primary);
+      color: white;
+    }
+
+    .text-danger {
+      margin-top: 50px;
+      color: red;
+    }
     </style>
 </head>
 <body>
@@ -216,10 +248,43 @@
           <fieldset>
             <legend>Search</legend>
               <form action="" method="post">
-                <input type="text" id="search" placeholder="Search by name">
-                <input type="button" id="click" name="submit" value="Search" onclick="return Search()">
-                <input type="button" id="blur" name="refresh" value="Refresh" onclick="location.window()">
-                <h3 id="searchResult">Search Result will appear here</h3>
+                <input type="text" id="search" name="search" placeholder="Search by name">
+                <button id="click" name="submit">Search</button>
+                <table class="table">
+                  <?php
+
+                    if(isset($_POST['submit'])) {
+                      $con = getConnection();
+                      
+                      $search = $_POST['search'];
+
+                      $sql = "SELECT * FROM user WHERE name like '%$search%' or username like '%$search%' or id like '%$search%'";
+                      $result = mysqli_query($con, $sql);
+
+                      if($result) {
+                        if(mysqli_num_rows($result) > 0) {
+                          echo "<tr>
+                                  <th>ID</th>
+                                  <th>Name</th>
+                                  <th>Username</th>
+                                  <th>User Type</th>
+                                </tr>";
+                                while($row = mysqli_fetch_assoc($result)) {
+                                  echo "<tr>
+                                  <td>{$row['id']}</td>
+                                  <td>{$row['name']}</td>
+                                  <td>{$row['username']}</td>
+                                  <td>{$row['usertype']}</td>
+                                  </tr>";
+                                }
+                        } else {
+                          echo'<h2 class=text-danger>Data not found!</h2>';
+                        }
+                      }
+
+                    }
+                  ?>
+                </table>
               </form>
           </fieldset>
         </td>
@@ -233,7 +298,7 @@
 
 </div>
 
-<script>
+<!-- <script>
   /* AJAX & JSON */
   function Search() {
     let search = document.getElementById('search').value;
@@ -250,7 +315,7 @@
       }
     }
   }
-</script>
+</script> -->
 
 </body>
 </html>

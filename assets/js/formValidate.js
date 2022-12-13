@@ -56,21 +56,6 @@ function validateRegistrationForm() {
   }
 }
 
-// Check Password and Confirm Password
-
-var chkpwd = function () {
-  if (
-    document.getElementById("password").value ==
-    document.getElementById("cpassword").value
-  ) {
-    document.getElementById("cpassErr").innerHTML = "Password Matched";
-    document.getElementById("cpassErr").style.color = "green";
-  } else {
-    document.getElementById("cpassErr").innerHTML = "Password Not Matched";
-    document.getElementById("cpassErr").style.color = "red";
-  }
-};
-
 // Show Password
 function SHPassword(x) {
   var checkbox = x.checked;
