@@ -1,6 +1,7 @@
 <?php
 
   session_start();
+  require_once '../../models/userModel.php';
 
   if(!isset($_SESSION['status'])){
     header('location: ../login.php');
@@ -9,6 +10,8 @@
   $username = $_REQUEST['username'];
 
   $profile = getProfile($username);
+
+  
 
 ?>
 
@@ -136,6 +139,24 @@
       background: var(--clr-secondary);
       color: #fff;
     }
+
+    .table {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .table th, .table td {
+      padding: 14px;
+      text-align: left;
+    }
+
+    .table tr:hover {
+      background-color: #f5f5f5;
+    }
     </style>
 </head>
 <body>
@@ -177,23 +198,23 @@
           <fieldset>
             <legend>PROFILE</legend>
             <form
-              action="../controllers/regCheck.php"
+              action=""
               method="post"
               enctype="multipart/form-data">
-              <table align="center">
+              <table align="center" class="table">
                 <tr>
-                  <td>Name</td>
-                  <td></td>
+                  <th>Name</th>
+                  <td><?php echo $_SESSION['name'] ?></td>
                 </tr>
 
                 <tr>
-                  <td>Username</td>
-                  <td></td>
+                  <th>Username</th>
+                  <td><?php echo $_SESSION['username'] ?></td>
                 </tr>
 
                 <tr>
-                  <td>Password</td>
-                  <td></td>
+                  <th>Password</th>
+                  <td><?php echo $_SESSION['password'] ?></td>
                 </tr>
               </table>
             </form>

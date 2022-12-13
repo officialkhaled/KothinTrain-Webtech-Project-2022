@@ -18,7 +18,7 @@
 
     /* Check usertype */ 
     if($usertype == 'admin') {
-      header('location: ../views/admin/adminHome.php');
+      header('location: ../views/admin/adminHome.php?username='.$username);
     } else if($usertype == 'customer') {
       header('location: ../views/customerHome.php');
     } else {

@@ -6,6 +6,12 @@
     header('location: ../login.php');
   }
 
+  $username = $_REQUEST['username'];
+
+  $_SESSION['name'] = $profile['name'];
+  $_SESSION['username'] = $profile['username'];
+  $_SESSION['password'] = $profile['password'];
+
 ?>
 
 <html>
