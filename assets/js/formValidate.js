@@ -1,3 +1,4 @@
+// Validate Login Form
 function validateLoginForm() {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
@@ -15,6 +16,7 @@ function validateLoginForm() {
   }
 }
 
+// Validate Registration Form
 function validateRegistrationForm() {
   let name = document.getElementById("name").value;
   let username = document.getElementById("username").value;
@@ -66,5 +68,16 @@ function SHPassword(x) {
   } else {
     document.getElementById("password").type = "password";
     document.getElementById("showhidepwd").textContent = "Show Password";
+  }
+}
+
+// Validate Search Form
+function searchValidate() {
+  let search = document.getElementById("search").value;
+
+  if (search == "") {
+    document.getElementById("searchErr").innerHTML =
+      "Search cannot be empty! <br> Please enter a valid search keyword";
+    return false;
   }
 }

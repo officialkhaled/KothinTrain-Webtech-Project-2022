@@ -14,6 +14,7 @@
   
   <title>Search Result | Admin</title>
   <link rel="stylesheet" href="../../assets/style/styleKhaled.css">
+  <script src="../../assets/js/formValidate.js"></script>
 
   <style>
     :root {
@@ -225,6 +226,14 @@
       margin-top: 50px;
       color: red;
     }
+
+    #searchErr {
+      color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
     </style>
 </head>
 <body>
@@ -247,9 +256,11 @@
         <td class="right-section" style="padding: 80px">
           <fieldset>
             <legend>Search</legend>
-              <form action="" method="post">
+              <form action="" method="post" onsubmit="return searchValidate()">
                 <input type="text" id="search" name="search" placeholder="Search by name">
                 <button id="click" name="submit">Search</button>
+                <span id="searchErr"></span>
+
                 <table class="table">
                   <?php
 
