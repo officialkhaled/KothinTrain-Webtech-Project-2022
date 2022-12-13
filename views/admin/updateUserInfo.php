@@ -9,8 +9,7 @@
   $con = getConnection();
 
   $id = $_GET['update'];
-  //$user = updateUser($id);
-
+  
   $sql = "SELECT * FROM user WHERE id='$id'";
   $result = mysqli_query($con, $sql);
 
@@ -35,6 +34,7 @@
       echo "Error";
     }
   }
+
 ?>
 
 <html>
@@ -42,7 +42,6 @@
   
   <title>Update User | Admin</title>
   <link rel="stylesheet" href="../../assets/style/styleKhaled.css">
-  <script src="../../assets/js/formValidate.js"></script>
 
   <style>
     :root {
@@ -277,6 +276,18 @@
       font-size: 18px;
       margin-left: 8px;
     }
+
+    #showPass-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .err-text{
+      color: tomato;
+      font-size: 16px;
+    }
     </style>
 </head>
 <body>
@@ -303,29 +314,29 @@
                 <table class="table">
                   <tr>
                     <td><label for="name">Name</label></td>
-                    <td><input type="text" name="name" value=<?php echo $name ?>></td>
+                    <td><input type="text" id="name" name="name" value=<?php echo $name ?>></td>
                   </tr>
                   <tr>
-                    <td colspan="2"><span id="nameErr" class="err-text"></span></td>
+                    <td colspan="2"><center><span id="nameErr" class="err-text"></span></center></td>
                   </tr>
                   <tr>
                     <td><label for="username">Username</label></td>
-                    <td><input type="text" name="username" value=<?php echo $username ?>></td>
+                    <td><input type="text" id="username" name="username" value=<?php echo $username ?>></td>
                   </tr>
                   <tr>
-                    <td colspan="2"><span id="unameErr" class="err-text"></span></td>
+                    <td colspan="2"><center><span id="unameErr" class="err-text"></span></center></td>
                   </tr>
                   <tr>
                     <td><label for="password">Password</label></td>
-                    <td><input type="password" name="password" value=<?php echo $password ?>></td>
+                    <td><input type="password" id="password" name="password" value=<?php echo $password ?>></td>
                   </tr>
                   <tr>
-                    <td colspan="2"><span id="passErr" class="err-text"></span></td>
+                    <td colspan="2"><center><span id="passErr" class="err-text"></span></center></td>
                   </tr>
                   <tr>
                     <td colspan="2">
                       <div id="showPass-card">
-                        <input type="checkbox" id="showPass" onchange="return SHPassword(this)" value="Show Password"><span id="showhidepwd">Show Password</span>
+                        <input type="checkbox" id="showPass" onchange="return SHPassword(this);"><span id="showhidepwd">Show Password</span>
                       </div>
                     </td>
                   </tr>
@@ -345,6 +356,8 @@
   </div>
 
 </div>
+
+  <script src="../../assets/js/formValidate.js"></script>
 
 </body>
 </html>

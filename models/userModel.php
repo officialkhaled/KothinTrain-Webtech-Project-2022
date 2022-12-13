@@ -66,11 +66,30 @@
   function updateUser($id) {
     $con = getConnection();
 
-    $sql = "SELECT * FROM user WHERE id='{$id}'";
+    $sql = "SELECT * FROM user WHERE id='$id'";
     $result = mysqli_query($con, $sql);
 
     $row = mysqli_fetch_assoc($result);
-    echo $row['name'];
+
+    $name = $row['name'];
+    $username = $row['username'];
+    $password = $row['password'];
+
+    if(isset($_POST['update'])) {
+      $name = $_POST['name'];
+      $username = $_POST['username'];
+      $password = $_POST['password'];
+
+      $sql = "UPDATE user SET name='$name', username='$username', password='$password' WHERE id='$id'";
+
+      $result = mysqli_query($con, $sql);
+
+      if($result) {
+        header('location: viewUsers.php');
+      } else {
+        echo "Error";
+      }
+    }
   }
 
   function getProfile($username) {
