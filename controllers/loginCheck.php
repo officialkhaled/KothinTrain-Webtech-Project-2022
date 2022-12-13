@@ -11,16 +11,16 @@
   if($status) {
     $_SESSION['status'] = true;
     $_SESSION['username'] = $username;
-    $_SESSION['name'] = $name;
+    //$_SESSION['name'] = $name;
     setcookie('status', 'true', time()+3600, '/');
 
     /* Check usertype */ 
 
-    header('location: ../views/admin/adminHome.php');
+    header('location: ../views/admin/adminHome.php?username='.$username);
   } else {
     header('location: ../views/login.php');
   }
-
+  
   /*
   // USERNAME VALIDATION
   if($username == "" || $password == "" ){

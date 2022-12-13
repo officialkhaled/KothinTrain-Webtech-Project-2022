@@ -63,10 +63,10 @@
     }
   }
 
-  function getProfile($id) {
+  function getProfile($username) {
     $con = getconnection();
 
-    $sql = "SELECT * FROM user WHERE id='{$id}'";
+    $sql = "SELECT * FROM user WHERE username='{$id}'";
     $result = mysqli_query($con, $sql);
     $count = mysqli_num_rows($result);
 

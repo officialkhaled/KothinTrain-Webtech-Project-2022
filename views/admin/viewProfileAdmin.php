@@ -6,6 +6,10 @@
     header('location: ../login.php');
   }
 
+  $username = $_REQUEST['username'];
+
+  $profile = getProfile($username);
+
 ?>
 
 <html>
@@ -175,46 +179,21 @@
             <form
               action="../controllers/regCheck.php"
               method="post"
-              enctype="multipart/form-data"
-            >
+              enctype="multipart/form-data">
               <table align="center">
                 <tr>
-                  <td><label for="name">Name</label></td>
-                  <td>:</td>
-                  <td>
-                    Khaled Hossain
-                    <!-- php code -->
-                  </td>
+                  <td>Name</td>
+                  <td></td>
                 </tr>
-                <br />
-                <br />
-                <br />
+
                 <tr>
-                  <td><label for="email">Email</label></td>
-                  <td>:</td>
-                  <td>
-                    khaled@aiub.edu
-                    <!-- php code -->
-                  </td>
+                  <td>Username</td>
+                  <td></td>
                 </tr>
+
                 <tr>
-                  <td><label for="gender">Gender</label></td>
-                  <td>:</td>
-                  <td>
-                    Male
-                    <!-- php code -->
-                  </td>
-                </tr>
-                <tr>
-                  <td><a href="editProfileAdmin.php">Edit Profile</a></td>
-                </tr>
-                <tr>
-                  <td class="img-box" colspan="2">
-                    <img src="" alt="img" width="100px" height="100px" /><a
-                      href="#"
-                      ><br />Update image</a
-                    >
-                  </td>
+                  <td>Password</td>
+                  <td></td>
                 </tr>
               </table>
             </form>
