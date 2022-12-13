@@ -49,9 +49,6 @@ function validateRegistrationForm() {
     document.getElementById("cpassErr").innerHTML =
       "Confirm Password cannot be empty";
     return false;
-  } else if (user_type == "") {
-    document.getElementById("typeErr").innerHTML = "User Type cannot be empty";
-    return false;
   } else if (password != cpassword) {
     document.getElementById("cpassErr").innerHTML =
       "Password and Confirm Password must be same";
@@ -59,6 +56,22 @@ function validateRegistrationForm() {
   }
 }
 
+// Check Password and Confirm Password
+
+var chkpwd = function () {
+  if (
+    document.getElementById("password").value ==
+    document.getElementById("cpassword").value
+  ) {
+    document.getElementById("cpassErr").innerHTML = "Password Matched";
+    document.getElementById("cpassErr").style.color = "green";
+  } else {
+    document.getElementById("cpassErr").innerHTML = "Password Not Matched";
+    document.getElementById("cpassErr").style.color = "red";
+  }
+};
+
+// Show Password
 function SHPassword(x) {
   var checkbox = x.checked;
 

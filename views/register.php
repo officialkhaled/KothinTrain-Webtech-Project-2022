@@ -25,14 +25,13 @@
       <input type="password" id="password" name="password" placeholder="Enter your password">
       <span id="passErr" class="err-text"></span>
 
-      <input type="password" id="cpassword" name="cpassword" placeholder="Confirm your password">
+      <input type="password" id="cpassword" name="cpassword" placeholder="Confirm your password" onkeyup="return checkPassword()">
       <span id="cpassErr" class="err-text"></span>
 
       <select name="user_type" id="user_type">
          <option value="customer">Customer</option>
          <option value="admin">Admin</option>
       </select>
-      <span id="typeErr" class="err-text"></span>
 
 
       <input type="submit" name="submit" value="register now" class="form-btn">

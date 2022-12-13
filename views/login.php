@@ -34,7 +34,7 @@
       </div>
 
       <div id="rememberMe-card">
-        <input type="checkbox" id="rememberMe" onchange="" value="Remember Me"><span id="remember">Remember Me</span>
+        <input type="checkbox" name=remember id="rememberMe" onchange="" value="Remember Me"><span id="remember">Remember Me</span>
       </div>
 
       <input type="submit" name="submit" value="LOGIN" class="form-btn">
