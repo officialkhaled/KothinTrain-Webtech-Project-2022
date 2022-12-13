@@ -21,11 +21,19 @@
   $password = $row['password'];
 
   if(isset($_POST['update'])) {
-    $name = $row['name'];
-    $username = $row['username'];
-    $password = $row['password'];
+    $name = $_POST['name'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
     $sql = "UPDATE user SET name='$name', username='$username', password='$password' WHERE id='$id'";
+
+    $result = mysqli_query($con, $sql);
+
+    if($result) {
+      header('location: viewUsers.php');
+    } else {
+      echo "Error";
+    }
   }
 ?>
 
@@ -264,6 +272,11 @@
       background: var(--clr-accent);
       color: #fff;
     }
+
+    #showhidepwd{
+      font-size: 18px;
+      margin-left: 8px;
+    }
     </style>
 </head>
 <body>
@@ -290,24 +303,31 @@
                 <table class="table">
                   <tr>
                     <td><label for="name">Name</label></td>
-                    <td><input type="text" name="name"></td>
+                    <td><input type="text" name="name" value=<?php echo $name ?>></td>
                   </tr>
                   <tr>
                     <td colspan="2"><span id="nameErr" class="err-text"></span></td>
                   </tr>
                   <tr>
                     <td><label for="username">Username</label></td>
-                    <td><input type="text" name="username"></td>
+                    <td><input type="text" name="username" value=<?php echo $username ?>></td>
                   </tr>
                   <tr>
                     <td colspan="2"><span id="unameErr" class="err-text"></span></td>
                   </tr>
                   <tr>
                     <td><label for="password">Password</label></td>
-                    <td><input type="password" name="password"></td>
+                    <td><input type="password" name="password" value=<?php echo $password ?>></td>
                   </tr>
                   <tr>
                     <td colspan="2"><span id="passErr" class="err-text"></span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div id="showPass-card">
+                        <input type="checkbox" id="showPass" onchange="return SHPassword(this)" value="Show Password"><span id="showhidepwd">Show Password</span>
+                      </div>
+                    </td>
                   </tr>
                   <tr>
                     <td colspan="2"><center><button type="submit" name="update" class="update-btn">Update</button></center></td>
