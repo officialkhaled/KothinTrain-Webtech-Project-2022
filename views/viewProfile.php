@@ -1,10 +1,17 @@
 <?php
 
   session_start();
+  require_once '../models/userModel.php';
 
   if(!isset($_SESSION['status'])){
     header('location: ../login.php');
   }
+
+  $con = getConnection();
+  $sql = "SELECT * FROM user WHERE username='{$_SESSION['username']}'";
+
+  $result = mysqli_query($con, $sql);
+  $row = mysqli_fetch_assoc($result);
 
 ?>
 
@@ -31,6 +38,24 @@
 
     body {
       background-color: var(--clr-bg);
+    }
+
+    .table {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .table th, .table td {
+      padding: 14px;
+      text-align: left;
+    }
+
+    .table tr:hover {
+      background-color: #f5f5f5;
     }
 
     .heading {
@@ -170,44 +195,25 @@
               method="post"
               enctype="multipart/form-data"
             >
-              <table align="center">
+            <table align="center" class="table">
                 <tr>
-                  <td><label for="name">Name</label></td>
-                  <td>:</td>
-                  <td>
-                    Khaled Hossain
-                    <!-- php code -->
-                  </td>
+                  <th>Name</th>
+                  <td><?php echo $row['name']; ?></td>
                 </tr>
-                <br />
-                <br />
-                <br />
+
                 <tr>
-                  <td><label for="email">Email</label></td>
-                  <td>:</td>
-                  <td>
-                    khaled@aiub.edu
-                    <!-- php code -->
-                  </td>
+                  <th>Username</th>
+                  <td><?php echo $row['username'] ?></td>
                 </tr>
+
                 <tr>
-                  <td><label for="gender">Gender</label></td>
-                  <td>:</td>
-                  <td>
-                    Male
-                    <!-- php code -->
-                  </td>
+                  <th>Password</th>
+                  <td><?php echo $row['password'] ?></td>
                 </tr>
+
                 <tr>
-                  <td><a href="editProfile.php">Edit Profile</a></td>
-                </tr>
-                <tr>
-                  <td class="img-box" colspan="2">
-                    <img src="" alt="img" width="100px" height="100px" /><a
-                      href="#"
-                      ><br />Update image</a
-                    >
-                  </td>
+                  <th>Profile Picture</th>
+                  <td><?php echo $row['img_data'] ?></td>
                 </tr>
               </table>
             </form>

@@ -2,9 +2,9 @@
 
   session_start();
 
-/*   if(!isset($_SESSION['status'])){
+  if(!isset($_SESSION['status'])){
     header('location: ../login.php');
-  }  */
+  }
 
   require_once '../../models/userModel.php';
 
@@ -13,7 +13,7 @@
 <html>
 <head>
   
-  <title>Users List | Admin</title>
+  <title>User List | Admin</title>
   <link rel="stylesheet" href="../../assets/style/styleKhaled.css">
 
   <style>
@@ -231,7 +231,7 @@
       <img src="..\..\assets\img\logo.png" alt="logo">
     </div>
     <div class="title">
-      <center><h3 class="title">RailSheba</h3></center>
+      <center><h3 class="title">Kothin<span style="color: rgb(255, 136, 0);">Train</span></h3></center>
     </div>
   </div> 
   <div class="nav"><?php include_once '../../assets/common/adminNavbar.php'; ?></div>
@@ -334,15 +334,14 @@
   if(isset($_GET['delete'])) {
     $id = $_GET['delete'];
     
-    $result = deleteUser($id);
+    $user = deleteUser($id);
 
-    if($result == true) {
-      //header('location: viewUsers.php');
+    if($user == true) {
+      header('location: viewUsers.php');
     } else {
       echo "<h2>Error deleting record: </h2>" . mysqli_error($con);
     }
 
-    mysqli_close($con);
   }
 
 ?>

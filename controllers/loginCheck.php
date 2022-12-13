@@ -13,7 +13,7 @@
     $_SESSION['status'] = true;
     $_SESSION['username'] = $username;
     $_SESSION['usertype'] = $usertype;
-    //$_SESSION['name'] = $name;
+
     setcookie('status', 'true', time()+3600, '/');
 
     /* Check usertype */ 

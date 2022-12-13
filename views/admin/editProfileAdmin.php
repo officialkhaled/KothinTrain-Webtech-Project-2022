@@ -1,9 +1,37 @@
 <?php
 
   session_start();
+  require_once '../../models/userModel.php';
 
   if(!isset($_SESSION['status'])){
     header('location: ../login.php');
+  }
+
+  $id = $_GET['update'];
+
+  $con = getConnection();
+  $sql = "SELECT * FROM user WHERE username='{$_SESSION['username']}'";
+  $result = mysqli_query($con, $sql);
+  $row = mysqli_fetch_assoc($result);
+
+  $name = $row['name'];
+  $username = $row['username'];
+  $password = $row['password'];
+
+  if(isset($_POST['update'])) {
+    $name = $_POST['name'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "UPDATE user SET name='$name', username='$username', password='$password' WHERE id='$id'";
+
+    $result = mysqli_query($con, $sql);
+
+    if($result) {
+      header('location: viewProfileAdmin.php');
+    } else {
+      echo "Error";
+    }
   }
 
 ?>
@@ -13,6 +41,7 @@
   
   <title>Edit Profile | Admin</title>
   <link rel="stylesheet" href="../../assets/style/styleKhaled.css">
+  <script src="../../assets/js/formValidate.js"></script>
 
   <style>
     :root {
@@ -132,6 +161,54 @@
       background: var(--clr-secondary);
       color: #fff;
     }
+
+    .table {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .table th, .table td {
+      padding: 14px;
+      text-align: left;
+    }
+
+    .table tr:hover {
+      background-color: #f5f5f5;
+    } 
+
+    .update-btn {
+      width: 100%;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+      background: var(--clr-secondary);
+      color: #fff;
+    }
+
+    .update-btn:hover {
+      background: var(--clr-accent);
+      color: #fff;
+    }
+
+    #showhidepwd{
+      font-size: 18px;
+      margin-left: 8px;
+    }
+
+    #showPass-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .err-text{
+      color: tomato;
+      font-size: 16px;
+    }
     </style>
 </head>
 <body>
@@ -173,50 +250,43 @@
           <fieldset>
             <legend> EDIT PROFILE </legend>
             <form
-              action="../controllers/regCheck.php"
+              action=""
               method="post"
-              enctype="multipart/form-data"
+              enctype="multipart/form-data" onkeyup="return validateUpdateForm()" onsubmit="return validateUpdateForm()"
             >
-              <table align="center">
-                <tr>
-                  <td><label for="name">Name</label></td>
-                  <td>:</td>
-                  <td>
-                    Khaled Hossain
-                    <!-- php code -->
-                  </td>
-                </tr>
-                <br />
-                <br />
-                <br />
-                <tr>
-                  <td><label for="email">Email</label></td>
-                  <td>:</td>
-                  <td>
-                    khaled@aiub.edu
-                    <!-- php code -->
-                  </td>
-                </tr>
-                <tr>
-                  <td><label for="gender">Gender</label></td>
-                  <td>:</td>
-                  <td>
-                    Male
-                    <!-- php code -->
-                  </td>
-                </tr>
-                <tr>
-                  <td><a href="editProfile.php">Edit Profile</a></td>
-                </tr>
-                <tr>
-                  <td class="img-box" colspan="2">
-                    <img src="" alt="img" width="100px" height="100px" /><a
-                      href="#"
-                      ><br />Change</a
-                    >
-                  </td>
-                </tr>
-              </table>
+            <table class="table">
+                  <tr>
+                    <td><label for="name">Name</label></td>
+                    <td><input type="text" id="name" name="name" value=<?php echo $name ?>></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><center><span id="nameErr" class="err-text"></span></center></td>
+                  </tr>
+                  <tr>
+                    <td><label for="username">Username</label></td>
+                    <td><input type="text" id="username" name="username" value=<?php echo $username ?>></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><center><span id="unameErr" class="err-text"></span></center></td>
+                  </tr>
+                  <tr>
+                    <td><label for="password">Password</label></td>
+                    <td><input type="password" id="password" name="password" value=<?php echo $password ?>></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><center><span id="passErr" class="err-text"></span></center></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div id="showPass-card">
+                        <input type="checkbox" id="showPass" onchange="return SHPassword(this);"><span id="showhidepwd">Show Password</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><center><button type="submit" name="update" class="update-btn">Update</button></center></td>
+                  </tr>
+                </table>
             </form>
           </fieldset>
         </td>

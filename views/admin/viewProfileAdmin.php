@@ -6,12 +6,13 @@
   if(!isset($_SESSION['status'])){
     header('location: ../login.php');
   }
-
-  $username = $_REQUEST['username'];
-
-  $profile = getProfile($username);
-
   
+  $con = getConnection();
+  $sql = "SELECT * FROM user WHERE username='{$_SESSION['username']}'";
+
+  $result = mysqli_query($con, $sql);
+  $row = mysqli_fetch_assoc($result);
+
 
 ?>
 
@@ -154,8 +155,25 @@
       text-align: left;
     }
 
-    .table tr:hover {
-      background-color: #f5f5f5;
+    #update-btn {
+      background-color: green;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    #update-btn:hover {
+      background-color: var(--clr-accent);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
     }
     </style>
 </head>
@@ -195,6 +213,7 @@
           </ul>
         </td>
         <td class="right-section" style="padding: 80px">
+
           <fieldset>
             <legend>PROFILE</legend>
             <form
@@ -204,21 +223,32 @@
               <table align="center" class="table">
                 <tr>
                   <th>Name</th>
-                  <td><?php echo $_SESSION['name'] ?></td>
+                  <td><?php echo $row['name']; ?></td>
                 </tr>
 
                 <tr>
                   <th>Username</th>
-                  <td><?php echo $_SESSION['username'] ?></td>
+                  <td><?php echo $row['username'] ?></td>
                 </tr>
 
                 <tr>
                   <th>Password</th>
-                  <td><?php echo $_SESSION['password'] ?></td>
+                  <td><?php echo $row['password'] ?></td>
                 </tr>
+                
+                <tr>
+                  <th>Profile Picture</th>
+                  <td><?php echo $row['img_data'] ?></td>
+                </tr>
+
+                <tr>
+                  <td colspan="2"><center><a href="editProfileAdmin.php?update=<?php echo $row['id']; ?>" id="update-btn">Update</a></center></td>
+                </tr>
+
               </table>
             </form>
           </fieldset>
+
         </td>
       </tr>
     </table>

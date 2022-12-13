@@ -3,16 +3,15 @@
   session_start();
   require_once '../../models/userModel.php';
 
-  /* if(!isset($_SESSION['status'])){
+  if(!isset($_SESSION['status'])){
     header('location: ../login.php');
-  } */
-  $con = getConnection();
+  }
 
   $id = $_GET['update'];
-  
+
+  $con = getConnection();
   $sql = "SELECT * FROM user WHERE id='$id'";
   $result = mysqli_query($con, $sql);
-
   $row = mysqli_fetch_assoc($result);
 
   $name = $row['name'];
