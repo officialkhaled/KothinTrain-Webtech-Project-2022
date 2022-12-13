@@ -46,7 +46,7 @@
       align-items: center;
     }
     #buy-btn {
-      background-color: var(--clr-primary);
+      background-color: tomato;
       color: #fff;
       font-size: 20px;
       font-weight: bold;
@@ -66,6 +66,10 @@
       cursor: pointer;
     }
     #buy-btn a {
+      text-decoration: none;
+    }
+
+    .no-underline {
       text-decoration: none;
     }
   </style>
@@ -94,7 +98,7 @@
         <td><p align=center class="pub-para">We are delighted to have you among us. On behalf of all the members and the management, we would like to extend our warmest welcome and good wishes! Trains are wonderful. To travel by train is to see nature and human beings, towns and churches, and rivers, in fact, to see life.”. Our goal is to make your life easier from traditional system. Kothin.com is a complete Rail project that can manage a whole system through online. Hopefully, you will have a great  experience through our system. <br></p></td>
       </tr>
       <tr>
-        <td align=center><a id="buy-btn" href="viewUsers.php">View Users List</a></td>
+        <td align=center><a class="no-underline" id="buy-btn" href="viewUsers.php">View Users List</a></td>
       </tr>
     </table>
     <!--  -->
