@@ -25,7 +25,7 @@
       header('location: ../views/login.php');
     }
   } else {
-    echo "Invalid username or password!";
+    echo "Invalid username or password! Make sure you have selected the correct user type.";
   }
 
   /*
