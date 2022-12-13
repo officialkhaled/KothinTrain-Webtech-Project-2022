@@ -9,11 +9,9 @@
   $status = validateLogin($username, $password);
 
   if($status) {
-    $_SESSION['user']['username'] = $username;
-    $_SESSION['user']['password'] = $password;
-    $_SESSION['user']['name'] = $name;
-
-    $_SESSION['user'] = true;
+    $_SESSION['status'] = true;
+    $_SESSION['username'] = $username;
+    $_SESSION['name'] = $name;
     setcookie('status', 'true', time()+3600, '/');
 
     /* Check usertype */ 

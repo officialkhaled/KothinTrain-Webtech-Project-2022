@@ -145,6 +145,38 @@
       font-weight: bold;
     }
 
+    #delete-btn:hover {
+      background-color: var(--clr-accent);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #update-btn {
+      background-color: green;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    #update-btn:hover {
+      background-color: var(--clr-accent);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     #list-table {
       border-collapse: collapse;
 
@@ -242,7 +274,7 @@
                   <th>Name</th>
                   <th>Username</th>
                   <th>Usertype</th>
-                  <th>Action</th>
+                  <th colspan="2">Action</th>
                   <th><button id="refresh-btn" onclick="location.reload()">Refresh</button></th>
                 </tr>
 
@@ -261,7 +293,12 @@
                       echo "<td><center>{$row['name']}</center></td>";
                       echo "<td><center>{$row['username']}</center></td>";
                       echo "<td><center>{$row['usertype']}</center></td>";
-                    
+                      
+                      // UPDATE BUTTON
+                      ?>
+                      <td><center><a id="update-btn" href="viewUsers.php?update=<?php echo $row['id']; ?>">Update</a></center></td>
+                      <?php
+
                       // DELETE BUTTON
                       ?>
                       <td><center><a id="delete-btn" href="viewUsers.php?delete=<?php echo $row['id']; ?>">Delete</a></center></td>
