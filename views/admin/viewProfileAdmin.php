@@ -206,7 +206,7 @@
             <li><a href="viewProfileAdmin.php">View Profile</a></li>
             <li><a href="editProfileAdmin.php">Edit Profile</a></li>
             <li><a href="#">Change Profile Picture</a></li>
-            <li><a href="#">Edit Album</a></li>
+            <li><a href="viewStationAdmin.php">Station</a></li>
             <li><a href="viewUsers.php">User List</a></li>
           </ul>
         </td>
